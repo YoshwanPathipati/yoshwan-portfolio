@@ -168,6 +168,8 @@ export type Build = {
   year: string;
   tags: string[];
   body: string;
+  /** Public repo. Omit for projects without one to link. */
+  github?: string;
 };
 
 export const builds = {
@@ -194,6 +196,22 @@ export const builds = {
       year: '2026',
       tags: ['React', 'Python', 'Heuristic optimization'],
       body: 'An AI-assisted scheduling tool that generates conflict-free course timetables for 100+ students from preferences, time constraints, and degree requirements, with real-time schedule visualization and filtering.',
+    },
+    {
+      ref: 'BLD-04',
+      name: 'WhisperKey',
+      year: '2026',
+      tags: ['Python', 'faster-whisper', 'Ollama', 'CUDA'],
+      body: 'Free, open-source alternative to Wispr Flow: hold a key, speak, and clean formatted text lands at your cursor in any Windows app, powered by local speech-to-text on the GPU and a local LLM cleanup pass that strips filler words and adapts tone to whatever app has focus. Fully offline: no cloud, no subscription, no audio ever leaves the machine.',
+      github: 'https://github.com/YoshwanPathipati/whisperkey',
+    },
+    {
+      ref: 'BLD-05',
+      name: 'QuillKey',
+      year: '2026',
+      tags: ['Python', 'FastAPI', 'LanguageTool', 'Ollama'],
+      body: 'A private, system-wide writing assistant for Windows: the Grammarly experience running entirely on your machine, correcting grammar, spelling, and style live in any app through Windows UI Automation, not just a browser. Local LanguageTool and a local LLM power the suggestions and one-key rewrites, with nothing ever leaving the machine.',
+      github: 'https://github.com/YoshwanPathipati/quillkey',
     },
   ] satisfies Build[],
 } as const;

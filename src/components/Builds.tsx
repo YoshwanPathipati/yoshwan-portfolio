@@ -8,7 +8,7 @@ export function Builds() {
       id="builds"
       code={builds.code}
       title={builds.title}
-      intrinsic={1120}
+      intrinsic={1900}
     >
       <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
         {builds.items.map((build, i) => (
@@ -36,6 +36,18 @@ export function Builds() {
                     </li>
                   ))}
                 </ul>
+
+                {build.github ? (
+                  <a
+                    href={build.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="t-stamp link-u mt-4 inline-flex w-fit items-center gap-1.5 border-t border-hairline pt-4 text-muted transition-colors hover:text-ink"
+                  >
+                    <span>View on GitHub</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ) : null}
               </article>
             </Reveal>
           </li>
