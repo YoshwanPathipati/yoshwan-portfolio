@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Archivo, IBM_Plex_Mono, Instrument_Sans } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { site } from '@/lib/content';
 import './globals.css';
 
@@ -147,7 +148,10 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
