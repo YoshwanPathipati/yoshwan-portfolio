@@ -8,7 +8,7 @@ export function Builds() {
       id="builds"
       code={builds.code}
       title={builds.title}
-      intrinsic={1900}
+      intrinsic={2280}
     >
       <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
         {builds.items.map((build, i) => (

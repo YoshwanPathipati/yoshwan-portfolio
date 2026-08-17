@@ -162,12 +162,20 @@ export const research = {
   ],
 } as const;
 
+/**
+ * Not rendered yet. Recorded now so that once there are enough builds to
+ * justify grouping the section (rather than one flat grid), the data is
+ * already there and no project needs re-categorizing retroactively.
+ */
+export type BuildCategory = 'AI/ML' | 'Full-stack' | 'Systems' | 'Security';
+
 export type Build = {
   ref: string;
   name: string;
   year: string;
   tags: string[];
   body: string;
+  category: BuildCategory;
   /** Public repo. Omit for projects without one to link. */
   github?: string;
 };
@@ -182,6 +190,7 @@ export const builds = {
       year: '2025 – Present',
       tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
       body: "Digitizing my family's farm business: a full-stack storefront with Stripe payments and real-time inventory across 100+ produce SKUs, replacing spreadsheet order-taking. Built mobile-first for the ~70% of customers who shop from their phones.",
+      category: 'Full-stack',
     },
     {
       ref: 'BLD-02',
@@ -189,6 +198,7 @@ export const builds = {
       year: '2026',
       tags: ['Twilio', 'LLM API', 'Flask', 'React'],
       body: 'A phone agent that answers restaurant calls, handles FAQs, and books reservations autonomously, with an owner dashboard for live call logs, transcripts, and analytics, and a Flask backend managing conversation state, business-specific prompts, and call routing.',
+      category: 'AI/ML',
     },
     {
       ref: 'BLD-03',
@@ -196,6 +206,7 @@ export const builds = {
       year: '2026',
       tags: ['React', 'Python', 'Heuristic optimization'],
       body: 'An AI-assisted scheduling tool that generates conflict-free course timetables for 100+ students from preferences, time constraints, and degree requirements, with real-time schedule visualization and filtering.',
+      category: 'AI/ML',
     },
     {
       ref: 'BLD-04',
@@ -203,6 +214,7 @@ export const builds = {
       year: '2026',
       tags: ['Python', 'faster-whisper', 'Ollama', 'CUDA'],
       body: 'Free, open-source alternative to Wispr Flow: hold a key, speak, and clean formatted text lands at your cursor in any Windows app, powered by local speech-to-text on the GPU and a local LLM cleanup pass that strips filler words and adapts tone to whatever app has focus. Fully offline: no cloud, no subscription, no audio ever leaves the machine.',
+      category: 'Systems',
       github: 'https://github.com/YoshwanPathipati/whisperkey',
     },
     {
@@ -211,7 +223,17 @@ export const builds = {
       year: '2026',
       tags: ['Python', 'FastAPI', 'LanguageTool', 'Ollama'],
       body: 'A private, system-wide writing assistant for Windows: the Grammarly experience running entirely on your machine, correcting grammar, spelling, and style live in any app through Windows UI Automation, not just a browser. Local LanguageTool and a local LLM power the suggestions and one-key rewrites, with nothing ever leaving the machine.',
+      category: 'Systems',
       github: 'https://github.com/YoshwanPathipati/quillkey',
+    },
+    {
+      ref: 'BLD-06',
+      name: 'Taskify',
+      year: '2025',
+      tags: ['React Native', 'Expo', 'Gemini AI', 'TypeScript'],
+      body: "An AI-powered task app for when you're bored: swipe through Gemini-ranked tasks pulled from your schedule, accept or skip with a gesture, then work the accepted ones in a dedicated Pomodoro focus screen. Ships with preloaded Virginia Tech student data so it runs immediately in Expo Go, no API keys required.",
+      category: 'AI/ML',
+      github: 'https://github.com/YoshwanPathipati/Taskify',
     },
   ] satisfies Build[],
 } as const;
