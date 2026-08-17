@@ -33,7 +33,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-pressed={dark}
-      className="t-stamp inline-flex items-center gap-2 border border-hairline px-2.5 py-2 text-muted transition-colors hover:border-accent hover:text-ink"
+      className="t-stamp inline-flex items-center gap-2 border border-hairline px-2.5 py-1.5 text-muted transition-colors hover:border-accent hover:text-ink"
     >
       <svg viewBox="0 0 12 12" className="h-3 w-3" aria-hidden="true">
         <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" strokeWidth="1" />
