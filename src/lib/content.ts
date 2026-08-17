@@ -228,12 +228,12 @@ export const builds = {
     },
     {
       ref: 'BLD-06',
-      name: 'Taskify',
-      year: '2025',
-      tags: ['React Native', 'Expo', 'Gemini AI', 'TypeScript'],
-      body: "An AI-powered task app for when you're bored: swipe through Gemini-ranked tasks pulled from your schedule, accept or skip with a gesture, then work the accepted ones in a dedicated Pomodoro focus screen. Ships with preloaded Virginia Tech student data so it runs immediately in Expo Go, no API keys required.",
+      name: 'SyllabusSync',
+      year: '2026',
+      tags: ['React', 'FastAPI', 'MongoDB', 'Gemini AI'],
+      body: 'Converts class syllabi into Google Calendar events automatically: drop in a PDF, Gemini extracts class times, exams, and deadlines, including recurring schedules like MWF 10 to 11am, then one click syncs everything with a color assigned per course.',
       category: 'AI/ML',
-      github: 'https://github.com/YoshwanPathipati/Taskify',
+      // GitHub link pending: repo is private until a leaked key is rotated out of its history.
     },
   ] satisfies Build[],
 } as const;
