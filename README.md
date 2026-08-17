@@ -120,6 +120,30 @@ Then set **Settings → Pages → Source** to **GitHub Actions**.
 
 ---
 
+## Development workflow
+
+`master` is production: every push to it auto-deploys to the live site
+([yoshwan-portfolio.vercel.app](https://yoshwan-portfolio.vercel.app)) within about a minute.
+
+For anything you want to see live before it goes public, push a branch instead. Vercel builds a preview
+deployment for every branch and pull request automatically, so you get a real, working URL to check
+before merging:
+
+```bash
+git checkout -b feat/<short-name>
+# make changes, commit
+git push -u origin feat/<short-name>
+```
+
+Open a PR (or check Vercel's dashboard) for the preview link. Merge to `master` when it looks right, and
+production updates itself.
+
+No branch protection is enabled on `master`, on purpose: for a solo project, being able to push a
+one-line fix straight to production without a PR is worth more than the safety net. Use a branch when a
+change is big enough to want a second look; skip it when it isn't.
+
+---
+
 ## Measured results
 
 Lighthouse, production build served with gzip:
