@@ -190,7 +190,7 @@ export const builds = {
   // elsewhere would fail to typecheck even though it's a valid `undefined`.
   items: [
     {
-      codename: 'BUILD 01',
+      codename: 'BLD-01',
       title: 'CloudGuard',
       lane: 'Cloud Security',
       status: 'IN PROGRESS',
@@ -199,7 +199,7 @@ export const builds = {
       metrics: ['CI-time misconfig blocking', 'NIST 800-53 auto-mapped', 'Multi-service detection'],
     },
     {
-      codename: 'BUILD 02',
+      codename: 'BLD-02',
       title: 'PromptShield',
       lane: 'AI Security',
       status: 'IN PROGRESS',
@@ -208,7 +208,7 @@ export const builds = {
       metrics: ['Attack success rate before/after guardrail', 'OWASP LLM Top 10 coverage', 'Local vs cloud benchmark'],
     },
     {
-      codename: 'BUILD 03',
+      codename: 'BLD-03',
       title: 'AI Restaurant Phone Assistant',
       lane: 'AI Security',
       status: 'SHIPPED',
@@ -217,7 +217,7 @@ export const builds = {
       metrics: ['Autonomous call handling', 'Live transcript + analytics', 'Injection-hardened'],
     },
     {
-      codename: 'BUILD 04',
+      codename: 'BLD-04',
       title: 'Organic Farm E-Commerce Platform',
       lane: 'Full-Stack',
       status: 'IN PROGRESS',
@@ -226,7 +226,7 @@ export const builds = {
       metrics: ['100+ SKUs managed', 'Stripe checkout', 'Mobile-first'],
     },
     {
-      codename: 'BUILD 05',
+      codename: 'BLD-05',
       title: 'WhisperKey',
       lane: 'Systems',
       status: 'SHIPPED',
@@ -236,7 +236,7 @@ export const builds = {
       repoUrl: 'https://github.com/YoshwanPathipati/whisperkey',
     },
     {
-      codename: 'BUILD 06',
+      codename: 'BLD-06',
       title: 'QuillKey',
       lane: 'Systems',
       status: 'SHIPPED',
