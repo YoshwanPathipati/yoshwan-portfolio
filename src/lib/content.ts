@@ -10,7 +10,6 @@ export const site = {
   title: 'Yoshwan Pathipati — Cloud Security & Distributed Systems',
   description:
     'Computer science student at Virginia Tech securing multi-cloud AWS and Azure environments at Triple Point Security, and building the SpaceNet satellite-constellation testbed at the Hume Center. AWS Certified Solutions Architect. Graduating May 2027.',
-  // TODO: update to the real Vercel URL after first deploy (or a custom domain later).
   url: 'https://yoshwan-portfolio.vercel.app',
   locale: 'en_US',
   docNumber: 'YP-2027',
