@@ -291,20 +291,6 @@
     white-space: nowrap;
   }
 
-  /* Lane badge on a build card: same shape as .tag, accent-toned so it reads
-     as the card's classification rather than just another tech tag. */
-  .lane-badge {
-    display: inline-block;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid var(--accent);
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent-text);
-    white-space: nowrap;
-  }
-
   /* The document is ~8,600px tall on a phone. Skipping style, layout and paint
      for the plates that are still off-screen is the single largest win on
      first load. Everything from the hero through the telemetry strip is

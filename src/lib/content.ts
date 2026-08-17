@@ -170,14 +170,12 @@ export type Build = {
   title: string;
   lane: BuildLane;
   status: BuildStatus;
-  oneLiner: string;
-  problem: string;
-  build: string;
+  body: string;
   stack: string[];
   metrics: string[];
-  /** Renders a "View demo" button when present; a status stamp otherwise. */
+  /** Renders a "View demo" link when present. */
   demoUrl?: string;
-  /** Renders a "Source" button when present; a status stamp otherwise. */
+  /** Renders a "Source" link when present. */
   repoUrl?: string;
 };
 
@@ -196,13 +194,8 @@ export const builds = {
       title: 'CloudGuard',
       lane: 'Cloud Security',
       status: 'IN PROGRESS',
-      oneLiner:
-        'A Terraform-provisioned AWS environment that detects security issues automatically and maps every finding to a compliance control.',
-      problem:
-        'Cloud misconfigurations and vulnerabilities go undetected until something breaks, and manually mapping findings to compliance controls does not scale.',
-      build:
-        'Provisions a multi-tier AWS environment (VPC, subnets, EC2, S3, IAM) entirely in Terraform, with no console clicking. Wires up GuardDuty, Inspector, Security Hub, CloudTrail, and CloudWatch for continuous detection, fanning findings out through SNS to a live React dashboard that maps each one to its NIST 800-53 control. A GitHub Actions pipeline runs tfsec on every push, so insecure infrastructure never merges.',
-      stack: ['Terraform', 'AWS', 'GuardDuty', 'Security Hub', 'GitHub Actions', 'tfsec', 'React', 'Python'],
+      body: 'A Terraform-provisioned AWS environment (VPC, EC2, S3, IAM) that wires up GuardDuty, Inspector, and Security Hub for continuous detection, mapping every finding to its NIST 800-53 control on a live React dashboard. A GitHub Actions pipeline runs tfsec on every push, so insecure infrastructure never merges.',
+      stack: ['Terraform', 'AWS', 'GuardDuty', 'Security Hub', 'GitHub Actions', 'tfsec'],
       metrics: ['CI-time misconfig blocking', 'NIST 800-53 auto-mapped', 'Multi-service detection'],
     },
     {
@@ -210,13 +203,8 @@ export const builds = {
       title: 'PromptShield',
       lane: 'AI Security',
       status: 'IN PROGRESS',
-      oneLiner:
-        'An LLM security testing harness that red-teams a chatbot endpoint, then proves a guardrail that shuts the attacks down.',
-      problem:
-        'LLM-powered apps ship everywhere with no defense against prompt injection, jailbreaks, or data leakage, and teams have no idea how exposed they are.',
-      build:
-        'Fires a battery of adversarial prompts (direct and indirect injection, jailbreaks, system-prompt leaks, data exfiltration) structured around the OWASP Top 10 for LLM Applications, and scores which attacks succeed. Implements an input and output guardrail in front of the model and reports the before-and-after success rate. Benchmarks the same attacks across a self-hosted Llama3 model and a cloud model to compare how injectable each one is.',
-      stack: ['Python', 'LLM APIs', 'Ollama', 'OWASP LLM Top 10', 'Streamlit'],
+      body: 'An LLM security testing harness that fires adversarial prompts (injection, jailbreaks, data exfiltration) structured around the OWASP Top 10 for LLM Applications, then proves an input and output guardrail that cuts the attack success rate. Benchmarks a self-hosted Llama3 model against a cloud model to compare how injectable each one is.',
+      stack: ['Python', 'LLM APIs', 'Ollama', 'OWASP LLM Top 10'],
       metrics: ['Attack success rate before/after guardrail', 'OWASP LLM Top 10 coverage', 'Local vs cloud benchmark'],
     },
     {
@@ -224,12 +212,7 @@ export const builds = {
       title: 'AI Restaurant Phone Assistant',
       lane: 'AI Security',
       status: 'SHIPPED',
-      oneLiner:
-        'A phone agent that answers restaurant calls, handles FAQs, and books reservations autonomously, with a secure owner dashboard for live analytics.',
-      problem:
-        'Small restaurants miss calls and reservations during busy hours, and staff cannot answer the phone and serve guests at the same time.',
-      build:
-        'A Twilio and LLM powered voice agent handles live calls end to end, with a Flask backend managing conversation state, business-specific prompts, and call routing. A React owner dashboard behind secure auth shows live call logs, transcripts, and analytics. Hardened against prompt injection using my own PromptShield harness.',
+      body: 'A Twilio and LLM powered phone agent that answers restaurant calls, handles FAQs, and books reservations autonomously, with a Flask backend managing conversation state and call routing. A React owner dashboard behind secure auth shows live call logs and analytics, hardened against prompt injection using my own PromptShield harness.',
       stack: ['Twilio', 'LLM API', 'Flask', 'React', 'Secure Auth'],
       metrics: ['Autonomous call handling', 'Live transcript + analytics', 'Injection-hardened'],
     },
@@ -238,12 +221,7 @@ export const builds = {
       title: 'Organic Farm E-Commerce Platform',
       lane: 'Full-Stack',
       status: 'IN PROGRESS',
-      oneLiner:
-        "A full-stack storefront digitizing my family's farm business, replacing spreadsheet order-taking with real payments and inventory.",
-      problem:
-        'A family agricultural business ran orders and inventory on manual spreadsheets, with no way for customers to browse or pay online.',
-      build:
-        'A React, Node, Express, and MongoDB storefront with Stripe payments and real-time inventory across 100+ produce SKUs. Built mobile-first for the roughly 70% of customers who shop from their phones, with a guest demo mode so the full order flow can be tried without signing up.',
+      body: "Digitizing my family's farm business: a full-stack storefront with Stripe payments and real-time inventory across 100+ produce SKUs, replacing spreadsheet order-taking. Built mobile-first for the roughly 70% of customers who shop from their phones, with a guest demo mode to try the order flow without signing up.",
       stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
       metrics: ['100+ SKUs managed', 'Stripe checkout', 'Mobile-first'],
     },
@@ -252,11 +230,7 @@ export const builds = {
       title: 'WhisperKey',
       lane: 'Systems',
       status: 'SHIPPED',
-      oneLiner:
-        'A free, open-source alternative to Wispr Flow: hold a key, speak, and clean formatted text lands at your cursor in any Windows app.',
-      problem: "Voice dictation tools are cloud subscriptions that send your audio to someone else's server.",
-      build:
-        'Local speech-to-text on the GPU via faster-whisper, with a local LLM cleanup pass that strips filler words and adapts tone to whatever app has focus. Fully offline: no cloud, no subscription, no audio ever leaves the machine.',
+      body: 'Free, open-source alternative to Wispr Flow: hold a key, speak, and clean formatted text lands at your cursor in any Windows app, powered by local speech-to-text on the GPU and a local LLM cleanup pass. Fully offline: no cloud, no subscription, no audio ever leaves the machine.',
       stack: ['Python', 'faster-whisper', 'Ollama', 'CUDA'],
       metrics: ['Fully offline', 'GPU-accelerated', 'System-wide hotkey'],
       repoUrl: 'https://github.com/YoshwanPathipati/whisperkey',
@@ -266,11 +240,7 @@ export const builds = {
       title: 'QuillKey',
       lane: 'Systems',
       status: 'SHIPPED',
-      oneLiner:
-        'A private, system-wide writing assistant for Windows: the Grammarly experience running entirely on your machine.',
-      problem: "Every grammar checker either lives in a browser tab or sends your writing to someone else's cloud.",
-      build:
-        "Windows UI Automation reads whatever field you're focused in, correcting grammar, spelling, and style live in any app, not just a browser. Local LanguageTool and a local LLM power the suggestions and one-key rewrites.",
+      body: "A private, system-wide writing assistant for Windows: the Grammarly experience running entirely on your machine, correcting grammar, spelling, and style live in any app through Windows UI Automation, not just a browser. Local LanguageTool and a local LLM power the suggestions and one-key rewrites.",
       stack: ['Python', 'FastAPI', 'LanguageTool', 'Ollama'],
       metrics: ['System-wide correction', 'Local LLM rewrites', 'Zero data leaves device'],
       repoUrl: 'https://github.com/YoshwanPathipati/quillkey',
