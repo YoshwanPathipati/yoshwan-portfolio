@@ -54,6 +54,23 @@ export function Hero() {
                   />
                 </svg>
               </a>
+
+              <a
+                href={asset(hero.tertiaryCta.href)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost"
+              >
+                {hero.tertiaryCta.label}
+                <svg viewBox="0 0 12 12" className="h-3 w-3" aria-hidden="true">
+                  <path
+                    d="M7 2H2v8h8V5M5.3 6.7 10 2M7 2h3v3"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
 

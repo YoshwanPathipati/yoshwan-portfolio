@@ -9,7 +9,7 @@ export const site = {
   name: 'Yoshwan Pathipati',
   title: 'Yoshwan Pathipati - Cloud Security & Distributed Systems',
   description:
-    'Computer science student at Virginia Tech securing multi-cloud AWS and Azure environments at Triple Point Security, and building the SpaceNet satellite-constellation testbed at the Hume Center. AWS Certified Solutions Architect. Graduating May 2027.',
+    'Computer science student at Virginia Tech building a locally-hosted LLM feedback pipeline for the Dept. of Engineering Education, the SpaceNet satellite-constellation testbed at the Hume Center, and cloud security tooling from a cybersecurity internship at Triple Point Security. AWS Certified Solutions Architect. Graduating May 2027.',
   url: 'https://yoshwanpathipati.com',
   locale: 'en_US',
   docNumber: 'YP-2027',
@@ -38,9 +38,10 @@ export const nav: NavItem[] = [
 export const hero = {
   eyebrow: "YOSHWAN PATHIPATI · CS @ VIRGINIA TECH '27 · AWS CERTIFIED SOLUTIONS ARCHITECT",
   headline: ['I secure clouds', 'and simulate satellite', 'constellations.'],
-  sub: "Cybersecurity intern at Triple Point Security. Researcher on the SpaceNet Testbed at Virginia Tech's Hume Center. I like problems with real constraints, and I ship.",
-  primaryCta: { label: 'View work', href: '#research' },
+  sub: "AI Research Assistant at Virginia Tech's Dept. of Engineering Education. Researcher on the SpaceNet Testbed at the Hume Center. I like problems with real constraints, and I ship.",
+  primaryCta: { label: 'View work', href: '#builds' },
   secondaryCta: { label: 'Download résumé', href: '/resume.pdf' },
+  tertiaryCta: { label: 'View résumé', href: '/resume.pdf' },
   figure: {
     id: 'FIG. 01',
     caption: 'LEO MESH GROUND TRACK / 12 SV / 3 PLANES / INC 53°',
@@ -55,16 +56,16 @@ export type Telemetry =
   | { kind: 'text'; value: string; label: string };
 
 export const telemetry: Telemetry[] = [
-  { kind: 'count', to: 100, suffix: '+', label: 'critical & high-severity findings surfaced' },
+  { kind: 'count', to: 104, suffix: '+', label: 'critical & high-severity findings surfaced' },
   { kind: 'delta', from: 45, to: 8, unit: 'min', label: 'CI/CD deploy time' },
-  { kind: 'count', to: 10, suffix: '+', label: 'researchers on my dashboards' },
+  { kind: 'count', to: 100, suffix: '+', label: 'students reached with automated AI feedback' },
   { kind: 'text', value: 'AWS', label: 'Certified Solutions Architect' },
 ];
 
 export const profile = {
   code: 'SEC 01',
   title: 'Profile',
-  body: "I'm a computer science student at Virginia Tech (May 2027, minors in AI, Cybersecurity, and Math) working at the intersection of cloud security and distributed systems. This summer I'm securing multi-cloud AWS/Azure environments at Triple Point Security; the rest of the year I build the SpaceNet Testbed at VT's Hume Center, a platform that simulates large-scale satellite constellations before anything launches. AWS-certified, Dean's List, co-founder of an 80-member coding club. Trilingual (English, Hindi, Telugu), with the adaptability and global perspective that comes from building a career across two continents.",
+  body: "I'm a computer science student at Virginia Tech (May 2027, minors in AI, Cybersecurity, and Math) working at the intersection of applied AI, distributed systems, and cloud security. Right now I'm building a locally-hosted LLM pipeline for the Dept. of Engineering Education and the SpaceNet Testbed at VT's Hume Center, a platform that simulates large-scale satellite constellations before anything launches; this past summer I secured multi-cloud AWS/Azure environments as a cybersecurity intern at Triple Point Security. AWS-certified, Dean's List (top 20% of class), co-founder of an 80-member coding club. Trilingual (English, Hindi, Telugu), with the adaptability and global perspective that comes from building a career across two continents.",
   facts: [
     { label: 'Based', value: 'Blacksburg, VA' },
     { label: 'Graduating', value: 'May 2027' },
@@ -79,6 +80,8 @@ export type Role = {
   role: string;
   dates: string;
   place?: string;
+  /** A short state flag, shown only when a role isn't simply active, e.g. paused pending a return date. */
+  status?: string;
   bullets: string[];
 };
 
@@ -87,40 +90,59 @@ export const fieldRecord = {
   title: 'Field record',
   primary: [
     {
+      ref: 'FR-05',
+      org: 'Virginia Tech Dept. of Engineering Education',
+      role: 'AI Research Assistant, LLM Automation',
+      dates: 'Sep 2026 – Present',
+      place: 'Blacksburg VA',
+      bullets: [
+        'Develop Python preprocessing scripts and faculty-reviewed prompts for CATME feedback generation through Ollama, ensuring compliance with university data-handling policies and delivering automated feedback to over 100 first-year engineering students.',
+        'Advise faculty on model selection and deployment by assessing three model families (Llama, Qwen, and Kimi), their computational requirements, and available Hokie AI and VT ARC resources, leading to the adoption of models that meet performance and cost targets for classroom use.',
+        'Collaborate with faculty and another assistant to containerize the CATME feedback pipeline with Docker, standardizing dependencies and setup for a target cohort of 100+ engineering students.',
+      ],
+    },
+    {
       ref: 'FR-04',
       org: 'Triple Point Security',
       role: 'Cybersecurity Intern',
-      dates: 'May 2026 – Present',
-      place: 'Hybrid, Blacksburg VA',
+      dates: 'May – Aug 2026',
+      place: 'Blacksburg VA',
+      status: 'Paused, Spring 2027 co-op return pending',
       bullets: [
-        'Architected a multi-cloud network linking AWS and Azure through VPC/VNet peering and a site-to-site VPN. Debugged a cross-provider IKE policy mismatch to bring the tunnel up, then automated the entire build with Terraform.',
-        'Ran authenticated and unauthenticated Nessus scans across a 5-host lab, surfacing 100+ critical and high-severity findings, validated with Wireshark packet analysis.',
-        'Caught a compliance-framework mismatch across four cross-referenced NIST/CMMC source documents before a 4-person team built a Security Hub mapping on the wrong control structure.',
-        "When OpenVAS's web UI stalled mid-assessment, drove scans directly through the GMP protocol via CLI in its Docker deployment, and delivered on schedule.",
+        'Introduced Amazon EventBridge and Amazon SNS to the compliance team, training 3 teammates to deploy workflows across AWS Regions.',
+        'Established an AWS-Azure site-to-site VPN, resolving a cross-provider IKE policy mismatch and teaching teammates VPN setup; provisioned infrastructure across AWS, Azure, and GCP with Terraform.',
+        'Conducted authenticated and unauthenticated Nessus scans across 5 hosts, surfacing 20+ critical and 84 high-severity findings, validated with Wireshark packet analysis.',
+        "Resolved a NIST/CMMC framework mismatch across 4 source publications, establishing the control structure for the team's AWS Security Hub compliance mapping.",
+        "When OpenVAS's web UI stalled mid-assessment, drove scans directly through the GMP protocol via CLI in its Docker deployment, completing the vulnerability assessment across the 5-host lab on schedule.",
+        'Compared self-hosted Llama 3 against cloud LLMs for vulnerability-report generation, identifying severity-classification errors, missed CVEs, and RAG reliability limits that led to updated detection rules and fewer false positives.',
       ],
     },
     {
       ref: 'FR-03',
-      org: 'Hume Center, Virginia Tech',
-      role: 'Undergraduate Research Assistant, SpaceNet Testbed',
+      org: 'Hume Center National Security Institute, Virginia Tech',
+      role: 'Research Assistant, Full-Stack Development (SpaceNet Testbed)',
       dates: 'Sep 2025 – Present',
       place: 'Blacksburg VA',
       bullets: [
-        'Designed Flask REST APIs that let 5+ aerospace researchers configure satellite simulations, launch experiments, and monitor real-time telemetry across concurrent workflows.',
-        'Built 4 React dashboards (pnpm workspaces) for experiment control and live telemetry visualization, used by a 10+ person research team.',
-        'Cut deployment from 45 to 8 minutes with a Docker + GitHub Actions CI/CD pipeline; reproducible builds across dev and production.',
+        'Led development of SpaceNet, building Flask REST APIs that let 5 aerospace researchers configure satellite simulations, launch experiments, and monitor telemetry across two concurrent workflows, streamlining their research process.',
+        'Advised aerospace researchers on software capabilities and limitations, translating goals into 4 React dashboards for experiment configuration and live telemetry, serving 10+ team members.',
+        'Proposed and deployed a Docker application after assessing hosting cost, reliability, and scaling constraints; automated CI/CD with GitHub Actions, reducing deployment time from 45 to 8 minutes.',
       ],
     },
     {
       ref: 'FR-02',
       org: 'Virginia Tech Dept. of Computer Science',
-      role: 'Undergraduate Research Assistant (OpenDSA)',
+      role: 'Research Assistant, Backend Development (OpenDSA)',
       dates: 'Jun – Aug 2025',
+      place: 'Blacksburg VA',
       bullets: [
-        'Built Ruby on Rails backend features for the OpenDSA learning platform powering CS 3114.',
-        'Refactored 3 instructor-facing controllers, eliminating N+1 queries and cutting database query time ~30% across analytics and progress-tracking modules.',
+        "Developed Ruby on Rails backend features for the CS 3114 interactive learning system, collaborating with faculty and contributors to add automated grading and real-time feedback workflows that streamlined student-instructor interactions and reduced manual grading effort.",
+        "Refactored 3 Ruby on Rails controllers in OpenDSA's course analytics and student-progress modules, eliminating N+1 queries and reducing database query time by 30%.",
       ],
     },
+  ] satisfies Role[],
+  secondaryLabel: 'Earlier record',
+  secondary: [
     {
       ref: 'FR-01',
       org: 'Avenues, IIT Bombay',
@@ -132,9 +154,6 @@ export const fieldRecord = {
         'Found 6 critical bugs in the auth flow through API testing with Postman and the DRF test client; all fixed across two sprints.',
       ],
     },
-  ] satisfies Role[],
-  secondaryLabel: 'Earlier record',
-  secondary: [
     {
       ref: 'FR-00',
       org: 'Merit Software Technologies',
@@ -154,15 +173,15 @@ export const research = {
   lede: 'Satellite constellations, simulated before they fly.',
   body: "SpaceNet simulates large-scale satellite constellations (think Starlink) before they're ever launched. It models real orbital mechanics and runs actual network traffic through a virtual constellation to measure real-world latency and throughput. My part: turning it into a Dockerized application. What used to mean hand-editing config files over SSH now runs in a browser: researchers configure experiments, launch simulations, and watch results render live in an interactive 3D view. No command line required. Presented as my first research poster at the Virginia Tech Summer Research Conference, 2026.",
   spec: [
-    { label: 'Program', value: "Hume Center, Virginia Tech" },
-    { label: 'Role', value: 'Undergraduate Research Assistant' },
+    { label: 'Program', value: 'Hume Center National Security Institute, Virginia Tech' },
+    { label: 'Role', value: 'Research Assistant, Full-Stack Development' },
     { label: 'Stack', value: 'Docker · Flask · React · GitHub Actions' },
     { label: 'Presented', value: 'VT Summer Research Conference, 2026' },
     { label: 'Status', value: 'Active' },
   ],
 } as const;
 
-export type BuildLane = 'Cloud Security' | 'AI Security' | 'Full-Stack' | 'Systems';
+export type BuildLane = 'AI Research' | 'Cloud Security' | 'AI Security' | 'Full-Stack' | 'Systems';
 export type BuildStatus = 'LIVE' | 'SHIPPED' | 'IN PROGRESS';
 
 export type Build = {
@@ -191,15 +210,24 @@ export const builds = {
   items: [
     {
       codename: 'BLD-01',
+      title: 'Multimodal Associative Memory',
+      lane: 'AI Research',
+      status: 'IN PROGRESS',
+      body: 'A symmetric recurrent energy-based model for audiovisual associative memory: continuous-time dynamics in JAX and a Modern Hopfield core with a Log-Sum-Exp energy function enable bidirectional pattern completion between audio and visual embeddings. Trained through Equilibrium Propagation, using local, biologically inspired weight updates instead of backpropagation.',
+      stack: ['JAX', 'Modern Hopfield Networks', 'Equilibrium Propagation', 'Energy-Based Models'],
+      metrics: ['Bidirectional audio-visual recall', 'Biologically plausible training', 'No backpropagation'],
+    },
+    {
+      codename: 'BLD-02',
       title: 'CloudGuard',
       lane: 'Cloud Security',
-      status: 'IN PROGRESS',
+      status: 'SHIPPED',
       body: 'A Terraform-provisioned AWS environment (VPC, EC2, S3, IAM) that wires up GuardDuty, Inspector, and Security Hub for continuous detection, mapping every finding to its NIST 800-53 control on a live React dashboard. A GitHub Actions pipeline runs tfsec on every push, so insecure infrastructure never merges.',
       stack: ['Terraform', 'AWS', 'GuardDuty', 'Security Hub', 'GitHub Actions', 'tfsec'],
       metrics: ['CI-time misconfig blocking', 'NIST 800-53 auto-mapped', 'Multi-service detection'],
     },
     {
-      codename: 'BLD-02',
+      codename: 'BLD-03',
       title: 'PromptShield',
       lane: 'AI Security',
       status: 'IN PROGRESS',
@@ -208,7 +236,7 @@ export const builds = {
       metrics: ['Attack success rate before/after guardrail', 'OWASP LLM Top 10 coverage', 'Local vs cloud benchmark'],
     },
     {
-      codename: 'BLD-03',
+      codename: 'BLD-04',
       title: 'AI Restaurant Phone Assistant',
       lane: 'AI Security',
       status: 'SHIPPED',
@@ -217,7 +245,7 @@ export const builds = {
       metrics: ['Autonomous call handling', 'Live transcript + analytics', 'Injection-hardened'],
     },
     {
-      codename: 'BLD-04',
+      codename: 'BLD-05',
       title: 'Organic Farm E-Commerce Platform',
       lane: 'Full-Stack',
       status: 'IN PROGRESS',
@@ -226,7 +254,7 @@ export const builds = {
       metrics: ['100+ SKUs managed', 'Stripe checkout', 'Mobile-first'],
     },
     {
-      codename: 'BLD-05',
+      codename: 'BLD-06',
       title: 'WhisperKey',
       lane: 'Systems',
       status: 'SHIPPED',
@@ -234,16 +262,6 @@ export const builds = {
       stack: ['Python', 'faster-whisper', 'Ollama', 'CUDA'],
       metrics: ['Fully offline', 'GPU-accelerated', 'System-wide hotkey'],
       repoUrl: 'https://github.com/YoshwanPathipati/whisperkey',
-    },
-    {
-      codename: 'BLD-06',
-      title: 'QuillKey',
-      lane: 'Systems',
-      status: 'SHIPPED',
-      body: "A private, system-wide writing assistant for Windows: the Grammarly experience running entirely on your machine, correcting grammar, spelling, and style live in any app through Windows UI Automation, not just a browser. Local LanguageTool and a local LLM power the suggestions and one-key rewrites.",
-      stack: ['Python', 'FastAPI', 'LanguageTool', 'Ollama'],
-      metrics: ['System-wide correction', 'Local LLM rewrites', 'Zero data leaves device'],
-      repoUrl: 'https://github.com/YoshwanPathipati/quillkey',
     },
   ] as Build[],
 } as const;
@@ -255,7 +273,17 @@ export const instrumentation = {
     {
       ref: 'INS-01',
       name: 'Languages',
-      items: ['Python', 'Java', 'C', 'JavaScript/TypeScript', 'SQL', 'Bash', 'PowerShell'],
+      items: [
+        'Python',
+        'Java',
+        'C',
+        'JavaScript/TypeScript',
+        'HTML/CSS',
+        'SQL',
+        'Ruby',
+        'Bash',
+        'PowerShell',
+      ],
     },
     {
       ref: 'INS-02',
@@ -263,10 +291,13 @@ export const instrumentation = {
       items: [
         'AWS (VPC, EC2, IAM, S3, Security Hub, GuardDuty, Inspector, CloudWatch, CloudTrail)',
         'Azure (VNets, NSGs)',
+        'GCP',
         'Terraform',
         'Docker',
-        'GitHub Actions',
+        'VMware',
+        'Git · GitHub Actions',
         'Linux',
+        'pnpm',
       ],
     },
     {
@@ -288,13 +319,20 @@ export const instrumentation = {
       items: [
         'React',
         'Node.js',
+        'Express',
         'Flask',
         'Django',
         'Ruby on Rails',
         'MongoDB',
         'MySQL',
         'PostgreSQL',
+        'Redis',
       ],
+    },
+    {
+      ref: 'INS-05',
+      name: 'AI & ML',
+      items: ['JAX', 'Ollama', 'Llama / Llama 3', 'RAG'],
     },
   ],
 } as const;
@@ -309,6 +347,7 @@ export const credentials = {
       href: 'https://www.credly.com/badges/7534fd0b-e184-4361-9836-e2d27c96adf2',
       hrefLabel: 'Verify',
     },
+    { name: 'CompTIA Security+', meta: 'In progress' },
     { name: 'NIST Risk Management Framework (RMF)', meta: '' },
   ],
   education: {
@@ -318,7 +357,8 @@ export const credentials = {
     details: [
       { label: 'Minors', value: 'AI, Cybersecurity, Math' },
       { label: 'GPA', value: '3.42' },
-      { label: 'Honors', value: "Dean's List" },
+      { label: 'Honors', value: "Dean's List, top 20% of class" },
+      { label: 'Coursework', value: 'Machine Learning, Computer Systems, Data Structures and Algorithms, Intro to AI, Cloud Software Development, Cryptography' },
       { label: 'Leadership', value: 'Co-founder, Collaborative Coding Activities Club (80+ members)' },
     ],
   },

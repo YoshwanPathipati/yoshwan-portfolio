@@ -10,7 +10,7 @@ export function Credentials() {
       id="credentials"
       code={credentials.code}
       title={credentials.title}
-      intrinsic={580}
+      intrinsic={780}
     >
       <div className="mt-8 grid gap-x-12 gap-y-8 lg:mt-10 lg:grid-cols-2">
         <Reveal>
