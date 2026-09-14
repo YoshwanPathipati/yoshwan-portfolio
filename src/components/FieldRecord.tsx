@@ -10,6 +10,7 @@ function Entry({ role, delay = 0 }: { role: Role; delay?: number }) {
           <p className="t-stamp text-accent-text">{role.ref}</p>
           <p className="t-label mt-2 text-ink">{role.dates}</p>
           {role.place ? <p className="t-stamp mt-2 text-muted">{role.place}</p> : null}
+          {role.status ? <p className="t-stamp mt-2 text-accent-text">{role.status}</p> : null}
         </div>
 
         <div className="min-w-0">
@@ -39,7 +40,7 @@ export function FieldRecord() {
       id="field-record"
       code={fieldRecord.code}
       title={fieldRecord.title}
-      intrinsic={2020}
+      intrinsic={2600}
     >
       <div className="mt-8 lg:mt-10">
         {fieldRecord.primary.map((role, i) => (

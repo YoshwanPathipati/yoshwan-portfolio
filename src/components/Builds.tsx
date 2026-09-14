@@ -4,7 +4,7 @@ import { Section } from './Section';
 
 export function Builds() {
   return (
-    <Section id="builds" code={builds.code} title={builds.title} intrinsic={3100}>
+    <Section id="builds" code={builds.code} title={builds.title} intrinsic={3130}>
       <p className="t-stamp mt-3 text-muted">{builds.subLabel}</p>
 
       <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:mt-8 lg:grid-cols-3">
