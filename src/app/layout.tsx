@@ -98,7 +98,7 @@ const personSchema = {
   '@type': 'Person',
   name: site.name,
   url: site.url,
-  email: 'mailto:yoshwanpathipati@vt.edu',
+  email: 'mailto:yoshwanpathipati@gmail.com',
   jobTitle: 'Cybersecurity Intern and Undergraduate Research Assistant',
   description: site.description,
   alumniOf: {
