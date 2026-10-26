@@ -99,14 +99,18 @@ const personSchema = {
   name: site.name,
   url: site.url,
   email: 'mailto:yoshwanpathipati@gmail.com',
-  jobTitle: 'Cybersecurity Intern and Undergraduate Research Assistant',
+  jobTitle: 'AI Research Assistant',
   description: site.description,
   alumniOf: {
     '@type': 'CollegeOrUniversity',
     name: 'Virginia Tech',
     url: 'https://www.vt.edu',
   },
-  worksFor: { '@type': 'Organization', name: 'Triple Point Security' },
+  worksFor: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Virginia Tech',
+    url: 'https://www.vt.edu',
+  },
   knowsAbout: [
     'Cloud security',
     'Vulnerability assessment',

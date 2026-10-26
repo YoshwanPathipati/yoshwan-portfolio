@@ -101,6 +101,11 @@ Since the build is a plain static export, `out/` can also be served from any sta
 that serves the site from a subpath (such as a GitHub Pages project site), set `NEXT_PUBLIC_BASE_PATH`
 at build time so asset links resolve.
 
+## License
+
+Copyright © Yoshwan Pathipati. All rights reserved. The source is public so you can see how the site is
+built; please don't republish its content, résumé, or design as your own.
+
 ---
 
 Designed and built by Yoshwan Pathipati.
