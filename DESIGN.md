@@ -183,7 +183,7 @@ element that makes the whole page read as one continuous sheet.
 │ │ SEC 07 │  CERTIFICATIONS & EDUCATION          two compact columns │ │
 │ ├────────┼──────────────────────────────────────────────────────────┤ │
 │ │ SEC 08 │  ESTABLISH CONTACT                                       │ │
-│ │        │  YOSHWANPATHIPATI@VT.EDU        ← display-xl, unmissable │ │
+│ │        │  YOSHWANPATHIPATI@GMAIL.COM     ← display, one line      │ │
 │ │        │  LINKEDIN / GITHUB      STATUS: OPEN TO 2027 ROLES       │ │
 │ │        │  ── colophon ─────────────────── DOC YP-2027 / REV S26 ─ │ │
 │ └──────────────────────────────────────────────────────────────────┘ │
