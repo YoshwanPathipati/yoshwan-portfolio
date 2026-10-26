@@ -107,7 +107,6 @@ export const fieldRecord = {
       role: 'Cybersecurity Intern',
       dates: 'May – Aug 2026',
       place: 'Blacksburg VA',
-      status: 'Paused, Spring 2027 co-op return pending',
       bullets: [
         'Introduced Amazon EventBridge and Amazon SNS to the compliance team, training 3 teammates to deploy workflows across AWS Regions.',
         'Established an AWS-Azure site-to-site VPN, resolving a cross-provider IKE policy mismatch and teaching teammates VPN setup; provisioned infrastructure across AWS, Azure, and GCP with Terraform.',
@@ -356,7 +355,6 @@ export const credentials = {
     dates: 'May 2027',
     details: [
       { label: 'Minors', value: 'AI, Cybersecurity, Math' },
-      { label: 'GPA', value: '3.42' },
       { label: 'Honors', value: "Dean's List, top 20% of class" },
       { label: 'Coursework', value: 'Machine Learning, Computer Systems, Data Structures and Algorithms, Intro to AI, Cloud Software Development, Cryptography' },
       { label: 'Leadership', value: 'Co-founder, Collaborative Coding Activities Club (80+ members)' },
@@ -368,7 +366,7 @@ export const contact = {
   code: 'SEC 07',
   title: 'Establish contact',
   status: 'Open to internships and full-time roles. Graduating May 2027.',
-  email: 'yoshwanpathipati@vt.edu',
+  email: 'yoshwanpathipati@gmail.com',
   links: [
     { label: 'LinkedIn', href: 'https://linkedin.com/in/yoshwan-pathipati-b9b525269' },
     { label: 'GitHub', href: 'https://github.com/YoshwanPathipati' },

@@ -59,8 +59,9 @@ The build is a plain static export: `next build` writes `out/`, and any static h
 1. Push the repo to GitHub.
 2. In Vercel, **Add New → Project** and import it.
 3. Accept the detected defaults and deploy. Nothing to configure.
-4. After attaching your domain, set `url` in `src/lib/content.ts` to it. That value drives the canonical
-   link, the sitemap, and the absolute URLs in the Open Graph and Twitter cards.
+4. Attach the custom domain under **Settings → Domains**. `url` in `src/lib/content.ts` must match it
+   (it is set to `https://yoshwanpathipati.com`): that value drives the canonical link, the sitemap, and
+   the absolute URLs in the Open Graph and Twitter cards.
 
 ### GitHub Pages
 
@@ -123,7 +124,7 @@ Then set **Settings → Pages → Source** to **GitHub Actions**.
 ## Development workflow
 
 `master` is production: every push to it auto-deploys to the live site
-([yoshwan-portfolio.vercel.app](https://yoshwan-portfolio.vercel.app)) within about a minute.
+([yoshwanpathipati.com](https://yoshwanpathipati.com)) within about a minute.
 
 For anything you want to see live before it goes public, push a branch instead. Vercel builds a preview
 deployment for every branch and pull request automatically, so you get a real, working URL to check

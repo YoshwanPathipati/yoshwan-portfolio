@@ -119,7 +119,7 @@ function ogSvg() {
   ${sats}
   <rect x="${bandX}" y="${bandY}" width="${bandW}" height="${bandH}" fill="none" stroke="${HAIRLINE}" stroke-width="1"/>
 
-  <text x="${inset + 26}" y="${H - inset - 26}" font-family="${MONO}" font-size="17" letter-spacing="2" fill="${INK}">YOSHWANPATHIPATI@VT.EDU</text>
+  <text x="${inset + 26}" y="${H - inset - 26}" font-family="${MONO}" font-size="17" letter-spacing="2" fill="${INK}">YOSHWANPATHIPATI@GMAIL.COM</text>
   <text x="${W - inset - 26}" y="${H - inset - 26}" text-anchor="end" font-family="${MONO}" font-size="17" letter-spacing="2" fill="${MUTED}">DOC NO. YP-2027 / REV S26</text>
 </svg>`;
 }
