@@ -18,7 +18,7 @@ export function Contact() {
       <Reveal delay={0.1}>
         <a
           href={`mailto:${contact.email}`}
-          className="link-u mt-6 inline-block font-display text-[clamp(1.45rem,6.6vw,4.25rem)] leading-[1.02] tracking-[-0.02em] hover:text-accent-text"
+          className="link-u mt-6 inline-block font-display text-[clamp(1.0625rem,5.4vw,2.25rem)] leading-[1.1] tracking-[-0.02em] hover:text-accent-text"
           style={{ fontVariationSettings: "'wdth' 102, 'wght' 800" }}
         >
           {local}
