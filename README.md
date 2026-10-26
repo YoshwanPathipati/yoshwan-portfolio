@@ -1,195 +1,108 @@
-# Yoshwan Pathipati — portfolio
+# Yoshwan Pathipati: portfolio
 
-A single-page portfolio built as an engineering dossier: part aerospace flight manual, part security
-assessment report. The design system, its rationale, and the wireframe are in [DESIGN.md](DESIGN.md).
+**Live at [yoshwanpathipati.com](https://yoshwanpathipati.com)**
 
-Next.js (App Router) · TypeScript strict · Tailwind CSS v4 · static export. No animation library, no UI
-kit: the only runtime dependencies are `next`, `react`, and `react-dom`.
+[![Portfolio preview](public/og.png)](https://yoshwanpathipati.com)
 
----
+My personal site, designed as an engineering dossier: part aerospace flight-test manual, part security
+assessment report. The concept, color and type system, and wireframes are written up in
+[DESIGN.md](DESIGN.md), which was finished before any component code.
 
-## Run it locally
+## Stack
+
+- **Next.js 16** (App Router), exported as a fully static site
+- **React 19** and **TypeScript** in strict mode
+- **Tailwind CSS v4**
+- **Vercel** for hosting, with Speed Insights for real-user performance data
+
+No animation library and no UI kit. Every interaction, including the orbital plot in the hero, is written
+by hand.
+
+## Project structure
+
+```text
+src/
+  app/          layout, page, metadata, sitemap, robots, icons
+  components/   one file per section (Hero, FieldRecord, Builds, Contact, ...)
+  lib/
+    content.ts  every word and fact on the site
+scripts/
+  generate-assets.mjs   builds the social card and favicon set
+public/
+  og.png, resume.pdf
+```
+
+All copy lives in `src/lib/content.ts`. Components render nothing that is not defined there, so the
+text can change without touching layout code.
+
+## Running it locally
+
+Requires Node.js 20.9 or newer.
 
 ```bash
 npm install
-```
-
-```bash
 npm run dev
 ```
 
 Then open <http://localhost:3000>.
 
-Other scripts:
-
 | Command | What it does |
 | --- | --- |
+| `npm run dev` | Development server |
 | `npm run build` | Static export to `out/` |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run lint` | ESLint |
-| `npm run assets` | Regenerates `og.png`, the favicon set, and the placeholder résumé |
+| `npm run assets` | Regenerates `og.png` and the favicon set |
 
----
+## Performance and accessibility
 
-## The two files you will actually edit
-
-**`src/lib/content.ts`** holds every word and fact on the site: hero copy, experience entries, projects,
-skills, links, the telemetry numbers. Components read from it and render nothing that is not defined
-there, so you can rewrite the site's text without opening a component.
-
-One house rule is enforced there: no em-dashes in anything that reaches the page. Use commas, colons,
-parentheses, or periods instead.
-
-**`public/resume.pdf`** is a placeholder. Drop the real PDF in at that exact path and every download
-button picks it up. (`npm run assets` will not overwrite a résumé that is already there.)
-
-### Optional headshot
-
-Add `public/headshot.jpg` and set `hasHeadshot: true` in `content.ts`. The Profile section is built so
-that the layout is correct either way, so leaving it `false` is a supported state, not a broken one.
-
----
-
-## Deploying
-
-The build is a plain static export: `next build` writes `out/`, and any static host can serve it.
-
-### Vercel
-
-1. Push the repo to GitHub.
-2. In Vercel, **Add New → Project** and import it.
-3. Accept the detected defaults and deploy. Nothing to configure.
-4. Attach the custom domain under **Settings → Domains**. `url` in `src/lib/content.ts` must match it
-   (it is set to `https://yoshwanpathipati.com`): that value drives the canonical link, the sitemap, and
-   the absolute URLs in the Open Graph and Twitter cards.
-
-### GitHub Pages
-
-Works with no changes if you deploy to a **user site** (`yourname.github.io`). For a **project site**
-served from a subpath (`yourname.github.io/portfolio`), set `NEXT_PUBLIC_BASE_PATH` at build time so
-asset links resolve; `next.config.ts` and the `asset()` helper both read it.
-
-Add `.github/workflows/deploy.yml`:
-
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      # Drop the NEXT_PUBLIC_BASE_PATH line entirely for a user site.
-      - run: npm run build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: out
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-Then set **Settings → Pages → Source** to **GitHub Actions**.
-
----
-
-## Development workflow
-
-`master` is production: every push to it auto-deploys to the live site
-([yoshwanpathipati.com](https://yoshwanpathipati.com)) within about a minute.
-
-For anything you want to see live before it goes public, push a branch instead. Vercel builds a preview
-deployment for every branch and pull request automatically, so you get a real, working URL to check
-before merging:
-
-```bash
-git checkout -b feat/<short-name>
-# make changes, commit
-git push -u origin feat/<short-name>
-```
-
-Open a PR (or check Vercel's dashboard) for the preview link. Merge to `master` when it looks right, and
-production updates itself.
-
-No branch protection is enabled on `master`, on purpose: for a solo project, being able to push a
-one-line fix straight to production without a PR is worth more than the safety net. Use a branch when a
-change is big enough to want a second look; skip it when it isn't.
-
----
-
-## Measured results
-
-Lighthouse, production build served with gzip:
+Lighthouse, production build:
 
 | | Performance | Accessibility | Best practices | SEO |
 | --- | --- | --- | --- | --- |
 | Desktop | 100 | 100 | 100 | 100 |
-| Mobile | 95–97 across 5 consecutive runs | 100 | 100 | 100 |
+| Mobile | 95 to 97 across 5 runs | 100 | 100 | 100 |
 
-Mobile: FCP 0.9s, **CLS 0**, TBT ~100ms, LCP 2.4–2.9s. LCP is dominated by React hydration, which is
-the framework's floor for a page this size rather than anything in the application code; disabling the
-hero canvas entirely was measured and moved it not at all.
+On mobile: FCP 0.9s, **CLS 0**, TBT around 100ms, LCP 2.4 to 2.9s. LCP is dominated by React hydration,
+which is the framework's floor for a page this size; disabling the hero canvas entirely was measured and
+did not move it.
 
-Two optimisations were tried, measured, and reverted, which is why they are not in the code: dropping
-the mono font's preload (cost CLS 0.12, since the labels are load-bearing structure) and building with
-webpack instead of Turbopack (567KB vs 573KB of JS, i.e. no difference).
+Two optimisations were tried, measured, and reverted: dropping the mono font's preload (it cost
+0.12 CLS, since the labels are load-bearing structure) and building with webpack instead of Turbopack
+(no meaningful difference in shipped JavaScript).
 
-Also verified: no horizontal scroll from 320px to 1440px+, AA contrast on all 204 text nodes in **both**
-themes, full keyboard traversal with a visible focus ring at every stop, and every string in
-`content.ts` present verbatim in the served HTML.
+Also verified: no horizontal scroll from 320px to 1440px and up, WCAG AA contrast on every text node in
+both light and dark themes, and full keyboard navigation with a visible focus ring at every stop.
 
----
+## Engineering notes
 
-## Notes on a few decisions
+**Fonts are self-hosted** at build time with `next/font` (Archivo, Instrument Sans, IBM Plex Mono). No
+font request leaves the page at runtime, and metric-matched fallbacks keep layout shift at zero.
 
-**Fonts** are self-hosted at build time by `next/font` (Archivo, Instrument Sans, IBM Plex Mono). No
-request leaves the page at runtime, and the metrics-matched fallbacks hold CLS at zero.
+**Type sizes are computed, not eyeballed.** Each `clamp()` floor is set by the longest unbreakable word
+in that role, so a headline can never force a horizontal scroll on a 320px screen.
 
-**Type sizes are computed, not eyeballed.** The clamp floors are set by the longest unbreakable word in
-each role, which is why the headline can never force a horizontal scroll at 320px.
+**The page works without JavaScript.** Scroll reveals only hide content when a `data-js` attribute is
+set by an inline script, and a `<noscript>` rule unhides everything, so the full document is readable
+with scripts blocked. Counters render their final values on the server for the same reason.
 
-**The page degrades honestly without JavaScript.** The scroll reveals' hidden state is gated on a
-`data-js` attribute set by an inline script, and a `<noscript>` rule unhides everything, so the full
-document is readable with the bundle blocked. The counters server-render their final values rather
-than zero, for the same reason.
+**Off-screen sections skip rendering** with `content-visibility: auto`, the single largest first-load
+win on a page this tall. Because the size hints are estimates, the nav releases them on the visitor's
+first pointer or key event, before any link can be clicked, so anchor links always land in the right
+place.
 
-**`content-visibility` and anchor links.** Off-screen sections skip layout until needed, which is the
-single largest first-load win on a page this tall. Since the size hints are estimates, `Nav` releases
-them on the visitor's first pointer or key event, before any link can be clicked, so anchor scrolling
-always lands on real layout.
+**The social card is generated, not drawn.** `scripts/generate-assets.mjs` rasterises `og.png` with
+sharp, so it can be rebuilt with one command whenever the design changes.
 
-**`og.png` is generated, not hand-drawn** (`scripts/generate-assets.mjs`), and is committed. It is
-rasterised by sharp using system fonts, so Arial Black stands in for Archivo on the card. Re-run
-`npm run assets` only if you change the card design.
+## Deployment
+
+Pushes to `master` deploy to production on Vercel, and every pull request gets a preview deployment.
+Since the build is a plain static export, `out/` can also be served from any static host. For a host
+that serves the site from a subpath (such as a GitHub Pages project site), set `NEXT_PUBLIC_BASE_PATH`
+at build time so asset links resolve.
 
 ---
 
 Designed and built by Yoshwan Pathipati.
+[LinkedIn](https://linkedin.com/in/yoshwan-pathipati-b9b525269) ·
+[GitHub](https://github.com/YoshwanPathipati)
