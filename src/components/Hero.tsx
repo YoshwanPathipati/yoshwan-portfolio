@@ -34,7 +34,7 @@ export function Hero() {
           </span>
         </h1>
 
-        <div className="mt-9 grid gap-x-12 gap-y-9 lg:mt-11 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-end">
+        <div className="mt-9 grid gap-x-12 gap-y-9 lg:mt-11 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-start">
           <div className="min-w-0">
             <p className="t-body-lg max-w-[44ch] text-muted">{hero.sub}</p>
 

@@ -83,7 +83,7 @@ export function TelemetryStrip() {
                   item.value
                 )}
               </p>
-              <p className="t-stamp mt-3 max-w-[22ch] text-muted">{item.label}</p>
+              <p className="t-stamp mt-3 max-w-[40ch] text-muted">{item.label}</p>
             </div>
           ))}
         </div>
