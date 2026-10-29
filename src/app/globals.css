@@ -128,16 +128,20 @@
     text-transform: uppercase;
   }
 
+  /* From 640px up the headline sets on its three authored lines, so the size
+     tracks the widest one ("and simulate satellite") at about 6.5% of the
+     measure. Any larger and that line breaks, leaving "satellite" orphaned. */
   @media (min-width: 640px) {
     .t-display-xl {
       font-variation-settings: 'wdth' 116, 'wght' 800;
-      font-size: clamp(3rem, 8vw, 6.25rem);
+      font-size: clamp(2.25rem, 5.8vw, 4.625rem);
       line-height: 0.92;
       letter-spacing: -0.021em;
     }
   }
 
   .t-display-lg {
+    text-wrap: balance;
     font-family: var(--font-display);
     font-variation-settings: 'wdth' 112, 'wght' 800;
     /* Floor is set by "Instrumentation", the longest unbreakable section title. */
@@ -148,6 +152,7 @@
   }
 
   .t-display-md {
+    text-wrap: balance;
     font-family: var(--font-display);
     font-variation-settings: 'wdth' 106, 'wght' 700;
     font-size: clamp(1.35rem, 2.2vw, 1.9rem);
@@ -156,6 +161,7 @@
   }
 
   .t-display-sm {
+    text-wrap: balance;
     font-family: var(--font-display);
     font-variation-settings: 'wdth' 104, 'wght' 700;
     font-size: 1.0625rem;
