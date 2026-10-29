@@ -101,7 +101,7 @@ becoming a costume.
 
 | Name | Size | Treatment |
 | --- | --- | --- |
-| `display-xl` | `clamp(3rem, 8vw, 6.25rem)` | Archivo 800, `wdth 116`, caps, `lh .92`, `ls -.021em` |
+| `display-xl` | `clamp(2.25rem, 5.8vw, 4.625rem)` | Archivo 800, `wdth 116`, caps, `lh .92`, `ls -.021em` |
 | `display-lg` | `clamp(1.5rem, 4.2vw, 3rem)` | Archivo 800, `wdth 112`, caps, `lh 1.0` |
 | `display-md` | `clamp(1.35rem, 2.2vw, 1.9rem)` | Archivo 700, `wdth 106`, `lh 1.1` |
 | `display-sm` | `1.0625rem` | Archivo 700, `wdth 104` |

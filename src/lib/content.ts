@@ -40,8 +40,7 @@ export const hero = {
   headline: ['I secure clouds', 'and simulate satellite', 'constellations.'],
   sub: "AI Research Assistant at Virginia Tech's Dept. of Engineering Education. Researcher on the SpaceNet Testbed at the Hume Center. I like problems with real constraints, and I ship.",
   primaryCta: { label: 'View work', href: '#builds' },
-  secondaryCta: { label: 'Download résumé', href: '/resume.pdf' },
-  tertiaryCta: { label: 'View résumé', href: '/resume.pdf' },
+  secondaryCta: { label: 'Résumé', href: '/resume.pdf' },
   figure: {
     id: 'FIG. 01',
     caption: 'LEO MESH GROUND TRACK / 12 SV / 3 PLANES / INC 53°',

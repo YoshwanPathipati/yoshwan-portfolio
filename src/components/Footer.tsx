@@ -8,7 +8,8 @@ export function Footer() {
     >
       <div className="shell flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 py-8 lg:py-10">
         <p className="t-stamp text-muted">{footer.colophon}</p>
-        <p className="t-stamp text-muted">{footer.stamp}</p>
+        {/* From lg up the document frame carries this stamp in its corners. */}
+        <p className="t-stamp text-muted lg:hidden">{footer.stamp}</p>
       </div>
     </footer>
   );
