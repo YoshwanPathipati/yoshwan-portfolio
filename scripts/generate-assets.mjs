@@ -110,9 +110,9 @@ function ogSvg() {
   <rect x="${inset + 26}" y="76" width="10" height="10" fill="${ACCENT}"/>
   <text x="${inset + 48}" y="86" font-family="${MONO}" font-size="17" letter-spacing="2.2" fill="${MUTED}">YOSHWAN PATHIPATI · CS @ VIRGINIA TECH '27 · AWS CERTIFIED</text>
 
-  <text x="${inset + 26}" y="186" font-family="${DISPLAY}" font-size="64" font-weight="900" letter-spacing="-1" fill="${INK}">I SECURE CLOUDS</text>
-  <text x="${inset + 26}" y="254" font-family="${DISPLAY}" font-size="64" font-weight="900" letter-spacing="-1" fill="${INK}">AND SIMULATE SATELLITE</text>
-  <text x="${inset + 26}" y="322" font-family="${DISPLAY}" font-size="64" font-weight="900" letter-spacing="-1" fill="${INK}">CONSTELLATIONS<tspan fill="${ACCENT}">.</tspan></text>
+  <text x="${inset + 26}" y="186" font-family="${DISPLAY}" font-size="64" font-weight="900" letter-spacing="-1" fill="${INK}">I BUILD AI SYSTEMS,</text>
+  <text x="${inset + 26}" y="254" font-family="${DISPLAY}" font-size="64" font-weight="900" letter-spacing="-1" fill="${INK}">SECURE THE CLOUD,</text>
+  <text x="${inset + 26}" y="322" font-family="${DISPLAY}" font-size="64" font-weight="900" letter-spacing="-1" fill="${INK}">SIMULATE SATELLITES<tspan fill="${ACCENT}">.</tspan></text>
 
   ${grid}
   ${tracks}

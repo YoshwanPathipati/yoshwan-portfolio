@@ -14,10 +14,12 @@ export function Hero() {
       className="pt-9 pb-[clamp(2.5rem,6vh,4rem)] lg:pt-14"
     >
       <div className="shell">
-        <p className="t-label flex items-center gap-2.5 text-muted">
-          <span aria-hidden="true" className="inline-block h-1.5 w-1.5 shrink-0 bg-accent" />
-          <span className="min-w-0">{hero.eyebrow}</span>
-        </p>
+        {/* Who this is, before what they do: a recruiter skimming the first
+            screen should leave with the name. */}
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5">
+          <p className="t-display-md text-ink">{hero.name}</p>
+          <p className="t-label text-muted">{hero.meta}</p>
+        </div>
 
         <hr className="rule mt-4" />
 
@@ -38,7 +40,12 @@ export function Hero() {
           <div className="min-w-0">
             <p className="t-body-lg max-w-[44ch] text-muted">{hero.sub}</p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <p className="t-label mt-6 flex items-center gap-2.5 text-balance text-ink">
+              <span aria-hidden="true" className="inline-block h-1.5 w-1.5 shrink-0 bg-accent" />
+              {hero.status}
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <MagneticLink href={hero.primaryCta.href} className="btn btn-primary">
                 {hero.primaryCta.label}
               </MagneticLink>

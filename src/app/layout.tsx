@@ -38,6 +38,8 @@ export const metadata: Metadata = {
   creator: site.name,
   keywords: [
     'Yoshwan Pathipati',
+    'AI engineer',
+    'LLM applications',
     'cloud security',
     'security engineer',
     'AWS Certified Solutions Architect',
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: `${site.name}: cloud security and distributed systems.`,
+        alt: `${site.name}: AI systems, cloud security, and satellite simulation.`,
       },
     ],
   },
@@ -112,6 +114,8 @@ const personSchema = {
     url: 'https://www.vt.edu',
   },
   knowsAbout: [
+    'Large language models',
+    'Applied AI',
     'Cloud security',
     'Vulnerability assessment',
     'Amazon Web Services',

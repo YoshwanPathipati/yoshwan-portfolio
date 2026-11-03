@@ -1,5 +1,6 @@
 ﻿import { asset } from '@/lib/asset';
 import { contact } from '@/lib/content';
+import { CopyEmail } from './CopyEmail';
 import { Reveal } from './Reveal';
 import { Section } from './Section';
 
@@ -15,10 +16,10 @@ export function Contact() {
         </p>
       </Reveal>
 
-      <Reveal delay={0.1}>
+      <Reveal delay={0.1} className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
         <a
           href={`mailto:${contact.email}`}
-          className="link-u mt-6 inline-block font-display text-[clamp(1.0625rem,5.4vw,2.25rem)] leading-[1.1] tracking-[-0.02em] hover:text-accent-text"
+          className="link-u inline-block font-display text-[clamp(1.0625rem,5.4vw,2.25rem)] leading-[1.1] tracking-[-0.02em] hover:text-accent-text"
           style={{ fontVariationSettings: "'wdth' 102, 'wght' 800" }}
         >
           {local}
@@ -26,6 +27,7 @@ export function Contact() {
           <span className="text-accent">@</span>
           {domain}
         </a>
+        <CopyEmail email={contact.email} />
       </Reveal>
 
       <Reveal delay={0.18}>

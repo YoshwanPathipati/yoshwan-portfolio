@@ -39,7 +39,7 @@ export function ThemeToggle() {
         <circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" strokeWidth="1" />
         <path d="M6 1a5 5 0 0 0 0 10Z" fill="currentColor" />
       </svg>
-      <span aria-hidden="true" className="hidden sm:inline">
+      <span aria-hidden="true" className="hidden xl:inline">
         Night ops
       </span>
       <span className="sr-only">Night ops theme</span>

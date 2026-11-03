@@ -101,7 +101,7 @@ becoming a costume.
 
 | Name | Size | Treatment |
 | --- | --- | --- |
-| `display-xl` | `clamp(2.25rem, 5.8vw, 4.625rem)` | Archivo 800, `wdth 116`, caps, `lh .92`, `ls -.021em` |
+| `display-xl` | `clamp(2.5rem, 6.6vw, 5.25rem)` | Archivo 800, `wdth 116`, caps, `lh .92`, `ls -.021em` |
 | `display-lg` | `clamp(1.5rem, 4.2vw, 3rem)` | Archivo 800, `wdth 112`, caps, `lh 1.0` |
 | `display-md` | `clamp(1.35rem, 2.2vw, 1.9rem)` | Archivo 700, `wdth 106`, `lh 1.1` |
 | `display-sm` | `1.0625rem` | Archivo 700, `wdth 104` |
@@ -110,11 +110,11 @@ becoming a costume.
 | `label` | `0.6875rem` | Plex Mono 500, caps, `ls .18em` |
 | `stamp` | `0.625rem` | Plex Mono 400, caps, `ls .22em` |
 
-**Sized against the longest unbreakable word, not by eye.** Below 640px the H1 switches
-to `wdth 100` and `clamp(1.6rem, 8.8vw, 3.5rem)`; the ceiling on each clamp is the size at which
-"CONSTELLATIONS." (the longest single word in the headline) still fits the measure at 320px. The
-section-title floor of `1.5rem` is set the same way, by "INSTRUMENTATION". Nothing on the page can
-force a horizontal scroll at any width from 320px up.
+**Sized against the measure, not by eye.** The H1 is authored as three lines and sets on exactly
+three at every width: its size tracks the widest line ("I BUILD AI SYSTEMS,") as a share of the
+measure. Below 640px it switches to `wdth 100` and `clamp(1.375rem, 7.3vw, 3rem)` by the same rule.
+The section-title floor of `1.5rem` is set by "CERTIFICATIONS", the longest unbreakable title.
+Nothing on the page can force a horizontal scroll at any width from 320px up.
 
 ---
 

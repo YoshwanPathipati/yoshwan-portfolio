@@ -7,7 +7,7 @@
 
 export const site = {
   name: 'Yoshwan Pathipati',
-  title: 'Yoshwan Pathipati - Cloud Security & Distributed Systems',
+  title: 'Yoshwan Pathipati - AI, Cloud Security & Distributed Systems',
   description:
     'Computer science student at Virginia Tech building a locally-hosted LLM feedback pipeline for the Dept. of Engineering Education, the SpaceNet satellite-constellation testbed at the Hume Center, and cloud security tooling from a cybersecurity internship at Triple Point Security. AWS Certified Solutions Architect. Graduating May 2027.',
   url: 'https://yoshwanpathipati.com',
@@ -19,6 +19,9 @@ export const site = {
   hasHeadshot: false,
 } as const;
 
+/** Shown above the fold and again in Contact, so it lives in one place. */
+export const availability = 'Open to internships and full-time roles. Graduating May 2027.';
+
 export const stampIn = {
   lines: [`DOC NO. ${site.docNumber}`, site.revision, `STATUS: ${site.status}`],
 } as const;
@@ -27,19 +30,21 @@ export type NavItem = { code: string; label: string; href: string };
 
 export const nav: NavItem[] = [
   { code: '01', label: 'Profile', href: '#profile' },
-  { code: '02', label: 'Field record', href: '#field-record' },
+  { code: '02', label: 'Experience', href: '#field-record' },
   { code: '03', label: 'Research', href: '#research' },
-  { code: '04', label: 'Builds', href: '#builds' },
-  { code: '05', label: 'Instrumentation', href: '#instrumentation' },
+  { code: '04', label: 'Projects', href: '#builds' },
+  { code: '05', label: 'Skills', href: '#instrumentation' },
   { code: '06', label: 'Credentials', href: '#credentials' },
   { code: '07', label: 'Contact', href: '#contact' },
 ];
 
 export const hero = {
-  eyebrow: "YOSHWAN PATHIPATI · CS @ VIRGINIA TECH '27 · AWS CERTIFIED SOLUTIONS ARCHITECT",
-  headline: ['I secure clouds', 'and simulate satellite', 'constellations.'],
+  name: site.name,
+  meta: "CS @ Virginia Tech '27 · AWS Certified Solutions Architect",
+  headline: ['I build AI systems,', 'secure the cloud,', 'simulate satellites.'],
   sub: "AI Research Assistant at Virginia Tech's Dept. of Engineering Education. Researcher on the SpaceNet Testbed at the Hume Center. I like problems with real constraints, and I ship.",
-  primaryCta: { label: 'View work', href: '#builds' },
+  status: availability,
+  primaryCta: { label: 'View projects', href: '#builds' },
   secondaryCta: { label: 'Résumé', href: '/resume.pdf' },
   figure: {
     id: 'FIG. 01',
@@ -64,7 +69,7 @@ export const telemetry: Telemetry[] = [
 export const profile = {
   code: 'SEC 01',
   title: 'Profile',
-  body: "I'm a computer science student at Virginia Tech (May 2027, minors in AI, Cybersecurity, and Math) working at the intersection of applied AI, distributed systems, and cloud security. Right now I'm building a locally-hosted LLM pipeline for the Dept. of Engineering Education and the SpaceNet Testbed at VT's Hume Center, a platform that simulates large-scale satellite constellations before anything launches; this past summer I secured multi-cloud AWS/Azure environments as a cybersecurity intern at Triple Point Security. AWS-certified, Dean's List (top 20% of class), co-founder of an 80-member coding club. Trilingual (English, Hindi, Telugu), with the adaptability and global perspective that comes from building a career across two continents.",
+  body: "I'm a computer science student at Virginia Tech working where applied AI, distributed systems, and cloud security meet. Right now I'm building a locally-hosted LLM feedback pipeline for the Dept. of Engineering Education and the SpaceNet Testbed at VT's Hume Center, which simulates satellite constellations before anything launches. In summer 2026 I secured multi-cloud AWS and Azure environments as a cybersecurity intern at Triple Point Security. I also co-founded an 80-member coding club.",
   facts: [
     { label: 'Based', value: 'Blacksburg, VA' },
     { label: 'Graduating', value: 'May 2027' },
@@ -86,7 +91,7 @@ export type Role = {
 
 export const fieldRecord = {
   code: 'SEC 02',
-  title: 'Field record',
+  title: 'Experience',
   primary: [
     {
       ref: 'FR-05',
@@ -139,7 +144,7 @@ export const fieldRecord = {
       ],
     },
   ] satisfies Role[],
-  secondaryLabel: 'Earlier record',
+  secondaryLabel: 'Earlier experience',
   secondary: [
     {
       ref: 'FR-01',
@@ -198,7 +203,7 @@ export type Build = {
 
 export const builds = {
   code: 'SEC 04',
-  title: 'Selected builds',
+  title: 'Projects',
   /** Mono sub-label under the heading. Kept in sync with the data by hand. */
   subLabel: 'SIX SYSTEMS // THREE SHIPPED, THREE IN PROGRESS',
   // A plain annotation, not `satisfies`: several items omit demoUrl/repoUrl
@@ -266,7 +271,7 @@ export const builds = {
 
 export const instrumentation = {
   code: 'SEC 05',
-  title: 'Instrumentation',
+  title: 'Skills',
   groups: [
     {
       ref: 'INS-01',
@@ -364,7 +369,7 @@ export const credentials = {
 export const contact = {
   code: 'SEC 07',
   title: 'Establish contact',
-  status: 'Open to internships and full-time roles. Graduating May 2027.',
+  status: availability,
   email: 'yoshwanpathipati@gmail.com',
   links: [
     { label: 'LinkedIn', href: 'https://linkedin.com/in/yoshwan-pathipati-b9b525269' },

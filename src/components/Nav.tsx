@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
+import { asset } from '@/lib/asset';
 import { contact, nav, site } from '@/lib/content';
 import { scrollToHash } from '@/lib/scroll';
 import { ThemeToggle } from './ThemeToggle';
@@ -10,6 +11,8 @@ const github = contact.links.find((l) => l.label === 'GitHub')!;
 
 export function Nav() {
   const [active, setActive] = useState<string>('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuId = useId();
 
   useEffect(() => {
     const sections = nav
@@ -47,21 +50,36 @@ export function Nav() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false);
+    const wide = window.matchMedia('(min-width: 1024px)');
+    const onWide = () => wide.matches && setMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    wide.addEventListener('change', onWide);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      wide.removeEventListener('change', onWide);
+    };
+  }, [menuOpen]);
+
   return (
     <header className="no-print sticky top-0 z-30 border-b border-hairline bg-paper/95 backdrop-blur-[2px]">
       <div className="shell flex h-[var(--nav-h)] items-center justify-between gap-3">
         <a
           href="#top"
           onClick={(e) => scrollToHash(e, '#top')}
-          aria-label={`YP ${site.docNumber}, back to top`}
-          className="t-stamp flex shrink-0 items-baseline gap-2 text-ink"
+          aria-label={`YP ${site.docNumber}, ${site.name}, back to top`}
+          className="flex shrink-0 items-baseline gap-2 text-ink"
         >
           <span className="t-display-sm">YP</span>
-          <span className="hidden text-muted sm:inline">{site.docNumber}</span>
+          <span className="t-stamp hidden text-muted xl:inline">{site.docNumber}</span>
         </a>
 
-        <nav aria-label="Sections" className="min-w-0">
-          <ul className="flex items-center overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {/* From lg up every section is named in the bar. Below that the
+            numbers alone said nothing, so the list moves into a menu. */}
+        <nav aria-label="Sections" className="hidden min-w-0 lg:block">
+          <ul className="flex items-center">
             {nav.map((item) => {
               const isActive = active === item.href;
               return (
@@ -70,19 +88,18 @@ export function Nav() {
                     href={item.href}
                     onClick={(e) => scrollToHash(e, item.href)}
                     aria-current={isActive ? 'true' : undefined}
-                    className={`t-stamp relative inline-flex items-center gap-1.5 px-1.5 py-2.5 transition-colors sm:px-2.5 ${
+                    className={`t-stamp relative inline-flex items-center gap-1.5 px-2 py-2.5 transition-colors xl:px-2.5 ${
                       isActive ? 'text-ink' : 'text-muted hover:text-ink'
                     }`}
                   >
-                    {/* The code stays in the accessible name so it matches the
-                        visible label, which is all a reader sees below xl. */}
-                    <span>{item.code}</span>
-                    <span className="hidden xl:inline">{item.label}</span>
-                    <span className="sr-only xl:hidden">{item.label}</span>
+                    <span aria-hidden="true" className="hidden 2xl:inline">
+                      {item.code}
+                    </span>
+                    {item.label}
                     {isActive ? (
                       <span
                         aria-hidden="true"
-                        className="absolute inset-x-1.5 bottom-1 h-px bg-accent sm:inset-x-2.5"
+                        className="absolute inset-x-2 bottom-1 h-px bg-accent xl:inset-x-2.5"
                       />
                     ) : null}
                   </a>
@@ -92,7 +109,7 @@ export function Nav() {
           </ul>
         </nav>
 
-        <div className="flex shrink-0 items-center gap-4">
+        <div className="flex shrink-0 items-center gap-3 sm:gap-4">
           <a
             href={linkedin.href}
             target="_blank"
@@ -117,9 +134,64 @@ export function Nav() {
             </svg>
           </a>
 
+          <a
+            href={asset(contact.resume.href)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="t-stamp border border-ink px-2.5 py-1.5 text-ink transition-colors hover:bg-ink hover:text-paper"
+          >
+            Résumé
+          </a>
+
           <ThemeToggle />
+
+          <button
+            type="button"
+            aria-expanded={menuOpen}
+            aria-controls={menuId}
+            onClick={() => setMenuOpen((open) => !open)}
+            className="t-stamp inline-flex items-center gap-2 border border-hairline px-2.5 py-1.5 text-muted transition-colors hover:border-accent hover:text-ink lg:hidden"
+          >
+            <svg viewBox="0 0 12 12" className="h-3 w-3" aria-hidden="true">
+              <path
+                d={menuOpen ? 'M2 2l8 8M10 2l-8 8' : 'M1 3h10M1 6h10M1 9h10'}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.2"
+              />
+            </svg>
+            Menu
+          </button>
         </div>
       </div>
+
+      <nav
+        id={menuId}
+        aria-label="Sections"
+        hidden={!menuOpen}
+        className="border-t border-hairline bg-paper lg:hidden"
+      >
+        <ul className="shell grid grid-cols-1 py-2 sm:grid-cols-2">
+          {nav.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                onClick={(e) => {
+                  setMenuOpen(false);
+                  scrollToHash(e, item.href);
+                }}
+                aria-current={active === item.href ? 'true' : undefined}
+                className="flex items-baseline gap-4 border-b border-hairline py-3.5 text-ink"
+              >
+                <span aria-hidden="true" className="t-stamp text-accent-text">
+                  {item.code}
+                </span>
+                <span className="t-display-sm">{item.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 }
