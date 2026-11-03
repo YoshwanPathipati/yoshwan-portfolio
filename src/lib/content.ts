@@ -73,7 +73,6 @@ export const profile = {
   facts: [
     { label: 'Based', value: 'Blacksburg, VA' },
     { label: 'Graduating', value: 'May 2027' },
-    { label: 'Languages', value: 'English, Hindi, Telugu' },
   ],
   headshotAlt: 'Yoshwan Pathipati',
 } as const;

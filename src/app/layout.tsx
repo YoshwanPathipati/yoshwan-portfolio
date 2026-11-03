@@ -125,7 +125,6 @@ const personSchema = {
     'Distributed systems',
     'Satellite constellation simulation',
   ],
-  knowsLanguage: ['English', 'Hindi', 'Telugu'],
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     name: 'AWS Certified Solutions Architect – Associate',
