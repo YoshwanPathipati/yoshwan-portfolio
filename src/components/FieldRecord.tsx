@@ -7,8 +7,9 @@ function Entry({ role, delay = 0 }: { role: Role; delay?: number }) {
     <Reveal delay={delay}>
       <article className="grid gap-y-4 border-t border-hairline py-8 lg:grid-cols-[13.5rem_minmax(0,1fr)] lg:gap-x-10">
         <div className="lg:pt-1">
-          <p className="t-stamp text-accent-text">{role.ref}</p>
-          <p className="t-label mt-2 text-ink">{role.dates}</p>
+          {/* Dates lead: the FR code used to sit above them in accent and drew
+              the eye first. It still keys the entry. */}
+          <p className="t-label text-ink">{role.dates}</p>
           {role.place ? <p className="t-stamp mt-2 text-muted">{role.place}</p> : null}
           {role.status ? <p className="t-stamp mt-2 text-accent-text">{role.status}</p> : null}
         </div>
