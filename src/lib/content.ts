@@ -60,9 +60,9 @@ export type Telemetry =
   | { kind: 'text'; value: string; label: string };
 
 export const telemetry: Telemetry[] = [
-  { kind: 'count', to: 104, suffix: '+', label: 'critical & high-severity findings surfaced' },
-  { kind: 'delta', from: 45, to: 8, unit: 'min', label: 'CI/CD deploy time' },
+  { kind: 'delta', from: 45, to: 8, unit: 'min', label: 'deploy time after CI/CD automation' },
   { kind: 'count', to: 100, suffix: '+', label: 'students reached with automated AI feedback' },
+  { kind: 'count', to: 104, suffix: '+', label: 'critical & high-severity findings from Nessus scans' },
   { kind: 'text', value: 'AWS', label: 'Certified Solutions Architect' },
 ];
 
@@ -212,12 +212,13 @@ export const builds = {
   items: [
     {
       codename: 'BLD-01',
-      title: 'Multimodal Associative Memory',
-      lane: 'AI Research',
-      status: 'IN PROGRESS',
-      body: 'A symmetric recurrent energy-based model for audiovisual associative memory: continuous-time dynamics in JAX and a Modern Hopfield core with a Log-Sum-Exp energy function enable bidirectional pattern completion between audio and visual embeddings. Trained through Equilibrium Propagation, using local, biologically inspired weight updates instead of backpropagation.',
-      stack: ['JAX', 'Modern Hopfield Networks', 'Equilibrium Propagation', 'Energy-Based Models'],
-      metrics: ['Bidirectional audio-visual recall', 'Biologically plausible training', 'No backpropagation'],
+      title: 'WhisperKey',
+      lane: 'Systems',
+      status: 'SHIPPED',
+      body: 'Free, open-source alternative to Wispr Flow: hold a key, speak, and clean formatted text lands at your cursor in any Windows app, powered by local speech-to-text on the GPU and a local LLM cleanup pass. Fully offline: no cloud, no subscription, no audio ever leaves the machine.',
+      stack: ['Python', 'faster-whisper', 'Ollama', 'CUDA'],
+      metrics: ['Fully offline', 'GPU-accelerated', 'System-wide hotkey'],
+      repoUrl: 'https://github.com/YoshwanPathipati/whisperkey',
     },
     {
       codename: 'BLD-02',
@@ -230,15 +231,6 @@ export const builds = {
     },
     {
       codename: 'BLD-03',
-      title: 'PromptShield',
-      lane: 'AI Security',
-      status: 'IN PROGRESS',
-      body: 'An LLM security testing harness that fires adversarial prompts (injection, jailbreaks, data exfiltration) structured around the OWASP Top 10 for LLM Applications, then proves an input and output guardrail that cuts the attack success rate. Benchmarks a self-hosted Llama3 model against a cloud model to compare how injectable each one is.',
-      stack: ['Python', 'LLM APIs', 'Ollama', 'OWASP LLM Top 10'],
-      metrics: ['Attack success rate before/after guardrail', 'OWASP LLM Top 10 coverage', 'Local vs cloud benchmark'],
-    },
-    {
-      codename: 'BLD-04',
       title: 'AI Restaurant Phone Assistant',
       lane: 'AI Security',
       status: 'SHIPPED',
@@ -247,23 +239,31 @@ export const builds = {
       metrics: ['Autonomous call handling', 'Live transcript + analytics', 'Injection-hardened'],
     },
     {
+      codename: 'BLD-04',
+      title: 'PromptShield',
+      lane: 'AI Security',
+      status: 'IN PROGRESS',
+      body: 'An LLM security testing harness that fires adversarial prompts (injection, jailbreaks, data exfiltration) structured around the OWASP Top 10 for LLM Applications, then proves an input and output guardrail that cuts the attack success rate. Benchmarks a self-hosted Llama3 model against a cloud model to compare how injectable each one is.',
+      stack: ['Python', 'LLM APIs', 'Ollama', 'OWASP LLM Top 10'],
+      metrics: ['OWASP LLM Top 10 coverage'],
+    },
+    {
       codename: 'BLD-05',
+      title: 'Multimodal Associative Memory',
+      lane: 'AI Research',
+      status: 'IN PROGRESS',
+      body: 'A symmetric recurrent energy-based model for audiovisual associative memory: continuous-time dynamics in JAX and a Modern Hopfield core with a Log-Sum-Exp energy function enable bidirectional pattern completion between audio and visual embeddings. Trained through Equilibrium Propagation, using local, biologically inspired weight updates instead of backpropagation.',
+      stack: ['JAX', 'Modern Hopfield Networks', 'Equilibrium Propagation', 'Energy-Based Models'],
+      metrics: ['Bidirectional audio-visual recall', 'Biologically plausible training', 'No backpropagation'],
+    },
+    {
+      codename: 'BLD-06',
       title: 'Organic Farm E-Commerce Platform',
       lane: 'Full-Stack',
       status: 'IN PROGRESS',
       body: "Digitizing my family's farm business: a full-stack storefront with Stripe payments and real-time inventory across 100+ produce SKUs, replacing spreadsheet order-taking. Built mobile-first for the roughly 70% of customers who shop from their phones, with a guest demo mode to try the order flow without signing up.",
       stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
       metrics: ['100+ SKUs managed', 'Stripe checkout', 'Mobile-first'],
-    },
-    {
-      codename: 'BLD-06',
-      title: 'WhisperKey',
-      lane: 'Systems',
-      status: 'SHIPPED',
-      body: 'Free, open-source alternative to Wispr Flow: hold a key, speak, and clean formatted text lands at your cursor in any Windows app, powered by local speech-to-text on the GPU and a local LLM cleanup pass. Fully offline: no cloud, no subscription, no audio ever leaves the machine.',
-      stack: ['Python', 'faster-whisper', 'Ollama', 'CUDA'],
-      metrics: ['Fully offline', 'GPU-accelerated', 'System-wide hotkey'],
-      repoUrl: 'https://github.com/YoshwanPathipati/whisperkey',
     },
   ] as Build[],
 } as const;

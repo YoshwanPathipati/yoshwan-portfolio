@@ -40,9 +40,25 @@ export function Hero() {
           <div className="min-w-0">
             <p className="t-body-lg max-w-[44ch] text-muted">{hero.sub}</p>
 
-            <p className="t-label mt-6 flex items-center gap-2.5 text-balance text-ink">
-              <span aria-hidden="true" className="inline-block h-1.5 w-1.5 shrink-0 bg-accent" />
-              {hero.status}
+            {/* One sentence per line, and hyphenated words never split: left
+                to wrap, the line broke inside "full-time". */}
+            <p className="t-label mt-6 flex items-baseline gap-2.5 text-ink">
+              <span aria-hidden="true" className="inline-block h-1.5 w-1.5 shrink-0 -translate-y-px bg-accent" />
+              <span>
+                {hero.status.split(/(?<=\.) /).map((sentence) => (
+                  <span key={sentence} className="block text-balance">
+                    {sentence.split(/(\S+-\S+)/).map((part, i) =>
+                      i % 2 ? (
+                        <span key={part} className="whitespace-nowrap">
+                          {part}
+                        </span>
+                      ) : (
+                        part
+                      ),
+                    )}
+                  </span>
+                ))}
+              </span>
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
