@@ -132,7 +132,7 @@ const personSchema = {
     url: 'https://www.credly.com/badges/7534fd0b-e184-4361-9836-e2d27c96adf2',
   },
   sameAs: [
-    'https://linkedin.com/in/yoshwan-pathipati-b9b525269',
+    'https://www.linkedin.com/in/yoshwan-pathipati',
     'https://github.com/YoshwanPathipati',
   ],
 };

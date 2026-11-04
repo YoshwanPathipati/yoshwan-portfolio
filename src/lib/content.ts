@@ -371,7 +371,7 @@ export const contact = {
   status: availability,
   email: 'yoshwanpathipati@gmail.com',
   links: [
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/yoshwan-pathipati-b9b525269' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/yoshwan-pathipati' },
     { label: 'GitHub', href: 'https://github.com/YoshwanPathipati' },
   ],
   resume: { label: 'Résumé', href: '/resume.pdf' },
