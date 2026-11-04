@@ -28,12 +28,21 @@ src/
     content.ts  every word and fact on the site
 scripts/
   generate-assets.mjs   builds the social card and favicon set
+resume/
+  resume.tex    LaTeX source of the résumé (Jake's Resume template)
 public/
   og.png, resume.pdf
 ```
 
 All copy lives in `src/lib/content.ts`. Components render nothing that is not defined there, so the
 text can change without touching layout code.
+
+The résumé is built from `resume/resume.tex` with [Jake's Resume](https://github.com/jakegut/resume)
+template (MIT). After editing it, rebuild and copy the PDF into place:
+
+```bash
+cd resume && pdflatex resume.tex && cp resume.pdf ../public/resume.pdf
+```
 
 ## Running it locally
 

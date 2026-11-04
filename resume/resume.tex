@@ -1,0 +1,214 @@
+%-------------------------
+% Résumé of Yoshwan Pathipati
+% Template: Jake's Resume, by Jake Gutierrez (https://github.com/jakegut/resume)
+% Based on: https://github.com/sb2nov/resume
+% License: MIT
+%
+% Build:  pdflatex resume.tex   then copy resume.pdf to ../public/resume.pdf
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\hypersetup{
+  pdftitle={Yoshwan Pathipati - Resume},
+  pdfauthor={Yoshwan Pathipati},
+  pdfsubject={Resume},
+  pdfkeywords={AI, LLM, cloud security, AWS, software engineering}
+}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Yoshwan Pathipati} \\ \vspace{1pt}
+    \small \href{mailto:yoshwanpathipati@gmail.com}{\underline{yoshwanpathipati@gmail.com}} $|$
+    \href{https://yoshwanpathipati.com}{\underline{yoshwanpathipati.com}} \\
+    \href{https://www.linkedin.com/in/yoshwan-pathipati-b9b525269/}{\underline{linkedin.com/in/yoshwan-pathipati-b9b525269}} $|$
+    \href{https://github.com/YoshwanPathipati}{\underline{github.com/YoshwanPathipati}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Virginia Tech}{Blacksburg, VA}
+      {B.S. in Computer Science; Minors in Artificial Intelligence, Cybersecurity, and Mathematics}{Aug. 2023 -- May 2027}
+      \resumeItemListStart
+        \resumeItem{\textbf{Honors:} Dean's List (top 20\%) \quad \textbf{Leadership:} Co-founder, Collaborative Coding Activities Club (80+ members)}
+        \resumeItem{\textbf{Coursework:} Machine Learning, Data Structures \& Algorithms, Cloud Software Development, Cryptography}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {AI Research Assistant, LLM Automation}{Sep. 2026 -- Present}
+      {Virginia Tech, Dept. of Engineering Education}{Blacksburg, VA}
+      \resumeItemListStart
+        \resumeItem{Develop Python preprocessing and faculty-reviewed prompts that generate CATME feedback through Ollama for 100+ first-year engineering students, within university data-handling policy}
+        \resumeItem{Evaluate Llama, Qwen, and Kimi on VT compute, guiding faculty to models meeting performance and cost goals}
+        \resumeItem{Containerize the feedback pipeline with Docker, standardizing dependencies and setup for a 100+ student cohort}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Cybersecurity Intern}{May 2026 -- Aug. 2026}
+      {Triple Point Security}{Blacksburg, VA}
+      \resumeItemListStart
+        \resumeItem{Ran authenticated/unauthenticated Nessus scans on 5 hosts, surfacing 20+ critical and 84 high-severity findings}
+        \resumeItem{Compared self-hosted Llama 3 with cloud LLMs for vulnerability-report generation, exposing severity errors, missed CVEs, and RAG limits that led to updated detection rules with fewer false positives}
+        \resumeItem{Built an AWS--Azure site-to-site VPN, fixing an IKE mismatch; provisioned AWS, Azure, and GCP via Terraform}
+        \resumeItem{Reconciled NIST and CMMC across 4 publications, defining controls for Security Hub compliance mapping}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Assistant, Full-Stack Development}{Sep. 2025 -- Present}
+      {Hume Center, National Security Institute \& Dept. of Aerospace and Ocean Engineering}{Blacksburg, VA}
+      \resumeItemListStart
+        \resumeItem{Lead development of SpaceNet, a satellite-constellation simulation testbed, building Flask REST APIs that let 5 aerospace researchers configure, launch, and monitor experiments}
+        \resumeItem{Built 4 React dashboards for experiment configuration and live telemetry, used by 10+ team members}
+        \resumeItem{Dockerized the platform and automated CI/CD with GitHub Actions, cutting deploys from 45 to 8 minutes}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Assistant, Backend Development}{Jun. 2025 -- Aug. 2025}
+      {Virginia Tech, Dept. of Computer Science (OpenDSA)}{Blacksburg, VA}
+      \resumeItemListStart
+        \resumeItem{Refactored 3 Rails controllers in OpenDSA, eliminating N+1 queries and cutting database query time by 30\%}
+        \resumeItem{Added automated grading and real-time feedback to CS 3114's learning system in Rails, reducing manual grading}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{CloudGuard} $|$ \emph{Terraform, AWS, GuardDuty, Security Hub, GitHub Actions, tfsec}}{Jan. 2026 -- Apr. 2026}
+          \resumeItemListStart
+            \resumeItem{Provisioned GuardDuty, Inspector, and Security Hub via Terraform; auto-mapped findings to NIST 800-53}
+            \resumeItem{Integrated tfsec into CI to block merges that introduce infrastructure misconfigurations}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{WhisperKey} $|$ \emph{Python, faster-whisper, Ollama}}{\href{https://github.com/YoshwanPathipati/whisperkey}{\underline{github.com/YoshwanPathipati/whisperkey}}}
+          \resumeItemListStart
+            \resumeItem{Open-source, fully offline Windows dictation: hold a hotkey, speak, and formatted text lands at the cursor}
+            \resumeItem{GPU speech-to-text (faster-whisper, CUDA) and a local Ollama LLM cleanup pass; no audio leaves the machine}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Multimodal Associative Memory} $|$ \emph{JAX, Modern Hopfield Networks}}{Feb. 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Audiovisual memory with continuous-time JAX dynamics and a Modern Hopfield core for bidirectional recall}
+            \resumeItem{Trained with Equilibrium Propagation's local, biologically inspired weight updates instead of backpropagation}
+          \resumeItemListEnd
+
+
+    \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, Java, C, JavaScript, TypeScript, SQL, Ruby, Bash, HTML/CSS} \\
+     \textbf{AI/ML}{: JAX, Ollama, Llama 3, RAG, faster-whisper} \\
+     \textbf{Cloud \& DevOps}{: AWS, Azure, GCP, Terraform, Docker, GitHub Actions, Linux, VMware} \\
+     \textbf{Security}{: Nessus, OpenVAS, Wireshark, nmap, tfsec, NIST SP 800-53 / RMF, CMMC} \\
+     \textbf{Web \& Data}{: React, Node.js, Express, Flask, Django, Ruby on Rails, PostgreSQL, MySQL, MongoDB, Redis} \\
+     \textbf{Certifications}{: AWS Certified Solutions Architect -- Associate (2026); CompTIA Security+ (in progress)}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
