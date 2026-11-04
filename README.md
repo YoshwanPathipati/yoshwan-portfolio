@@ -118,5 +118,5 @@ built; please don't republish its content, résumé, or design as your own.
 ---
 
 Designed and built by Yoshwan Pathipati.
-[LinkedIn](https://linkedin.com/in/yoshwan-pathipati-b9b525269) ·
+[LinkedIn](https://www.linkedin.com/in/yoshwan-pathipati) ·
 [GitHub](https://github.com/YoshwanPathipati)
