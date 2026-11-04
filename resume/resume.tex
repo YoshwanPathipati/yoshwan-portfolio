@@ -5,6 +5,10 @@
 % License: MIT
 %
 % Build:  pdflatex resume.tex   then copy resume.pdf to ../public/resume.pdf
+%
+% ATS notes: single column, no icons, nothing in headers or footers, standard
+% section names, real text (\pdfgentounicode) and ligatures disabled so words
+% like "certified" and "workflows" extract as plain letters for keyword matching.
 %-------------------------
 
 \documentclass[letterpaper,10pt]{article}
@@ -20,13 +24,15 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = *}
 \input{glyphtounicode}
 
 \hypersetup{
   pdftitle={Yoshwan Pathipati - Resume},
   pdfauthor={Yoshwan Pathipati},
   pdfsubject={Resume},
-  pdfkeywords={AI, LLM, cloud security, AWS, software engineering}
+  pdfkeywords={Software Engineer, AI, LLM, Machine Learning, Cloud Security, AWS, Python, Full-Stack}
 }
 
 \pagestyle{fancy}
@@ -104,8 +110,9 @@
 %----------HEADING----------
 \begin{center}
     \textbf{\Huge \scshape Yoshwan Pathipati} \\ \vspace{1pt}
-    \small \href{mailto:yoshwanpathipati@gmail.com}{\underline{yoshwanpathipati@gmail.com}} $|$
-    \href{https://yoshwanpathipati.com}{\underline{yoshwanpathipati.com}} $|$
+    \small Blacksburg, VA $|$
+    \href{mailto:yoshwanpathipati@gmail.com}{\underline{yoshwanpathipati@gmail.com}} $|$
+    \href{https://yoshwanpathipati.com}{\underline{yoshwanpathipati.com}} \\
     \href{https://www.linkedin.com/in/yoshwan-pathipati}{\underline{linkedin.com/in/yoshwan-pathipati}} $|$
     \href{https://github.com/YoshwanPathipati}{\underline{github.com/YoshwanPathipati}}
 \end{center}
@@ -116,7 +123,7 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Virginia Tech}{Blacksburg, VA}
-      {B.S. in Computer Science; Minors in Artificial Intelligence, Cybersecurity, and Mathematics}{Aug. 2023 -- May 2027}
+      {B.S. in Computer Science; Minors in Artificial Intelligence, Cybersecurity, and Mathematics}{Aug 2023 -- May 2027}
       \resumeItemListStart
         \resumeItem{\textbf{Honors:} Dean's List (top 20\% of class) \quad \textbf{Leadership:} Co-founder, Collaborative Coding Activities Club (80+ members)}
         \resumeItem{\textbf{Coursework:} Machine Learning, Intro to AI, Data Structures \& Algorithms, Cloud Software Development, Cryptography}
@@ -129,11 +136,11 @@
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      \textbf{Languages}{: Python, Java, C, JavaScript, TypeScript, SQL, Ruby, Bash, PowerShell, HTML/CSS} \\
-     \textbf{AI/ML}{: JAX, Ollama, Llama 3, RAG, LLM APIs, faster-whisper, Modern Hopfield Networks, Equilibrium Propagation} \\
-     \textbf{Cloud \& DevOps}{: AWS (VPC, EC2, IAM, S3, GuardDuty), Azure, GCP, Terraform, Docker, GitHub Actions, Linux} \\
-     \textbf{Security}{: Nessus, OpenVAS, Wireshark, nmap, tfsec, NIST 800-53 / RMF, CMMC, OWASP LLM Top 10} \\
-     \textbf{Web \& Data}{: React, Node.js, Express, Flask, Django, Ruby on Rails, Twilio, Stripe, PostgreSQL, MySQL, MongoDB, Redis} \\
-     \textbf{Certifications}{: AWS Certified Solutions Architect -- Associate (Jul. 2026); CompTIA Security+ (in progress)}
+     \textbf{AI/ML}{: Large Language Models (LLMs), Ollama, Llama 3, Retrieval-Augmented Generation (RAG), JAX} \\
+     \textbf{Cloud \& DevOps}{: AWS (EC2, S3, IAM, VPC, Security Hub, GuardDuty), Azure, GCP, Terraform, Docker, CI/CD, Linux} \\
+     \textbf{Security}{: Vulnerability Assessment, Nessus, OpenVAS, Wireshark, nmap, tfsec, NIST SP 800-53, NIST RMF, CMMC} \\
+     \textbf{Web \& Databases}{: React, Node.js, Express, Flask, Django, Ruby on Rails, REST APIs, PostgreSQL, MySQL, MongoDB, Redis} \\
+     \textbf{Certifications}{: AWS Certified Solutions Architect -- Associate (Jul 2026); CompTIA Security+ (in progress)}
     }}
  \end{itemize}
 
@@ -143,19 +150,19 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {AI Research Assistant, LLM Automation}{Sep. 2026 -- Present}
+      {AI Research Assistant, LLM Automation}{Sep 2026 -- Present}
       {Virginia Tech, Dept. of Engineering Education}{Blacksburg, VA}
       \resumeItemListStart
-        \resumeItem{Develop Python preprocessing and faculty-reviewed prompts that generate CATME feedback via Ollama for 100+ students}
+        \resumeItem{Develop Python preprocessing and faculty-reviewed prompts that generate CATME feedback via Ollama for \textbf{100+ students}}
         \resumeItem{Assess Llama, Qwen, and Kimi on VT compute, guiding faculty to models that meet classroom performance and cost goals}
         \resumeItem{Containerize the feedback pipeline with Docker alongside faculty, standardizing setup for a 100+ student cohort}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Cybersecurity Intern}{May 2026 -- Aug. 2026}
+      {Cybersecurity Intern}{May 2026 -- Aug 2026}
       {Triple Point Security}{Blacksburg, VA}
       \resumeItemListStart
-        \resumeItem{Ran authenticated and unauthenticated Nessus scans on 5 hosts, finding 20+ critical and 84 high-severity issues}
+        \resumeItem{Ran authenticated and unauthenticated Nessus scans on 5 hosts, finding \textbf{20+ critical and 84 high-severity} issues}
         \resumeItem{Compared self-hosted Llama 3 with cloud LLMs for vulnerability-report generation, exposing severity-classification errors, missed CVEs, and RAG reliability limits that led to updated detection rules and fewer false positives}
         \resumeItem{Built an AWS--Azure site-to-site VPN, fixing an IKE policy mismatch; provisioned AWS, Azure, and GCP with Terraform}
         \resumeItem{Kept a stalled OpenVAS assessment on schedule by driving scans over GMP from the CLI in its Docker deployment}
@@ -164,31 +171,30 @@
       \resumeItemListEnd
 
     \resumeSubheading
-      {Research Assistant, Full-Stack Development (SpaceNet Testbed)}{Sep. 2025 -- Present}
+      {Research Assistant, Full-Stack Development (SpaceNet Testbed)}{Sep 2025 -- Present}
       {Hume Center, National Security Institute \& Dept. of Aerospace and Ocean Engineering}{Blacksburg, VA}
       \resumeItemListStart
         \resumeItem{Lead development of SpaceNet, a satellite-constellation simulation testbed, building its Flask REST APIs for 5 researchers}
         \resumeItem{Replaced SSH config editing with a browser workflow and 4 React telemetry dashboards used by 10+ team members}
-        \resumeItem{Dockerized the platform and automated CI/CD with GitHub Actions, cutting deployment time from 45 to 8 minutes}
+        \resumeItem{Dockerized the platform and automated CI/CD with GitHub Actions, cutting deployment time from \textbf{45 to 8 minutes}}
         \resumeItem{Presented SpaceNet as a research poster at the Virginia Tech Summer Research Conference (2026)}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Research Assistant, Backend Development (OpenDSA)}{Jun. 2025 -- Aug. 2025}
+      {Research Assistant, Backend Development (OpenDSA)}{Jun 2025 -- Aug 2025}
       {Virginia Tech, Dept. of Computer Science}{Blacksburg, VA}
       \resumeItemListStart
-        \resumeItem{Refactored 3 Rails controllers in OpenDSA's analytics modules, removing N+1 queries and cutting query time by 30\%}
+        \resumeItem{Refactored 3 Rails controllers in OpenDSA's analytics modules, removing N+1 queries and cutting query time by \textbf{30\%}}
         \resumeItem{Built Rails features for CS 3114's learning system: automated grading and real-time feedback that reduced manual grading}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Python Developer Intern}{Jul. 2024 -- Oct. 2024}
+      {Python Developer Intern}{Jul 2024 -- Oct 2024}
       {Avenues, IIT Bombay}{Remote}
       \resumeItemListStart
         \resumeItem{Shipped Django and MySQL backend features (authentication, profiles, data validation) across three core modules}
         \resumeItem{Found 6 critical auth-flow bugs through API testing with Postman and the DRF test client, all fixed within two sprints}
       \resumeItemListEnd
-
 
   \resumeSubHeadingListEnd
 
@@ -198,42 +204,27 @@
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
-          {\textbf{CloudGuard} $|$ \emph{Terraform, AWS, GuardDuty, Inspector, Security Hub, React, GitHub Actions, tfsec}}{Jan. 2026 -- Apr. 2026}
+          {\textbf{Organic Farm E-Commerce Platform} $|$ \emph{React, Node.js, Express, MongoDB, Stripe}}{Oct 2025 -- Present}
           \resumeItemListStart
-            \resumeItem{Terraform-built AWS (VPC, EC2, S3, IAM) running GuardDuty, Inspector, and Security Hub; findings map to NIST 800-53}
-            \resumeItem{Live React dashboard of findings; tfsec in GitHub Actions blocks any merge that introduces a misconfiguration}
+            \resumeItem{Building a full-stack storefront for my family's farm business with listings, inventory management, and order processing}
+            \resumeItem{Integrated Stripe payments and real-time inventory for \textbf{100+ produce SKUs}, replacing spreadsheet-based order-taking}
+            \resumeItem{Mobile-first for the roughly 70\% of customers who shop on phones, with a guest demo mode to try ordering without signing up}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{WhisperKey} $|$ \emph{Python, faster-whisper, Ollama, CUDA}}{\href{https://github.com/YoshwanPathipati/whisperkey}{github.com/YoshwanPathipati/whisperkey}}
+          {\textbf{CloudGuard: Cloud Security Posture Monitoring} $|$ \emph{Terraform, AWS, Security Hub, tfsec}}{Jan 2026 -- Apr 2026}
           \resumeItemListStart
-            \resumeItem{Open-source, offline Wispr Flow alternative: hold a key, speak, and formatted text lands at the cursor in any Windows app}
-            \resumeItem{Local GPU speech-to-text (faster-whisper, CUDA) plus an Ollama LLM cleanup pass; no audio ever leaves the machine}
+            \resumeItem{Provisioned AWS (VPC, EC2, S3, IAM) with Terraform, wiring GuardDuty, Inspector, and Security Hub for threat detection}
+            \resumeItem{Mapped every Security Hub finding to its NIST SP 800-53 control on a live React dashboard}
+            \resumeItem{Added tfsec to a GitHub Actions pipeline that scans every push and blocks merges with infrastructure misconfigurations}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{PromptShield} $|$ \emph{Python, LLM APIs, Ollama, OWASP Top 10 for LLMs}}{In progress}
+          {\textbf{Multimodal Associative Memory} $|$ \emph{Python, JAX, Modern Hopfield Networks, Equilibrium Propagation}}{Feb 2026 -- Present}
           \resumeItemListStart
-            \resumeItem{LLM security harness firing injection, jailbreak, and data-exfiltration prompts mapped to the OWASP Top 10 for LLMs}
-            \resumeItem{Building input/output guardrails to cut attack success rate; benchmarking self-hosted Llama 3 against a cloud model}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{AI Restaurant Phone Assistant} $|$ \emph{Twilio, LLM API, Flask, React}}{}
-          \resumeItemListStart
-            \resumeItem{Twilio and LLM phone agent that answers calls, handles FAQs, and books reservations, with a Flask backend for call state}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{Multimodal Associative Memory} $|$ \emph{JAX, Modern Hopfield Networks, Equilibrium Propagation}}{Feb. 2026 -- Present}
-          \resumeItemListStart
-            \resumeItem{Continuous-time JAX dynamics and a Log-Sum-Exp Modern Hopfield core for bidirectional audio-visual recall}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{Organic Farm E-Commerce Platform} $|$ \emph{React, Node.js, Express, MongoDB, Stripe}}{Oct. 2025 -- Present}
-          \resumeItemListStart
-            \resumeItem{Storefront for my family's farm with Stripe payments and real-time inventory for 100+ SKUs, replacing spreadsheet orders}
+            \resumeItem{Designing an energy-based audiovisual associative memory that completes patterns from audio to vision and back}
+            \resumeItem{Implemented continuous-time dynamics in JAX with a Modern Hopfield core using a Log-Sum-Exp energy function}
+            \resumeItem{Trained with Equilibrium Propagation's local, biologically inspired weight updates instead of backpropagation}
           \resumeItemListEnd
 
     \resumeSubHeadingListEnd
